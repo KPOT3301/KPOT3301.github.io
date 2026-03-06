@@ -51,7 +51,7 @@
         }
         @media (max-width: 480px) {
             .logo-container img {
-                max-width: 280px;
+                max-width: 320px; /* увеличено с 280px */
             }
         }
         @media (min-width: 768px) {
@@ -60,7 +60,7 @@
                 padding: 30px;
             }
             .logo-container img {
-                max-width: 350px;
+                max-width: 400px; /* увеличено с 350px */
             }
         }
         @media (min-width: 1024px) {
@@ -68,7 +68,7 @@
                 max-width: 950px;
             }
             .logo-container img {
-                max-width: 450px;
+                max-width: 500px; /* увеличено с 450px */
             }
         }
 
@@ -159,15 +159,7 @@
             border: 2px solid #fff;
         }
         
-        /* Анимация вспышки при клике */
-        @keyframes buttonFlash {
-            0% { border-color: #fff; background-color: rgba(255, 255, 255, 0); }
-            50% { border-color: #0f0; background-color: rgba(0, 255, 0, 0.3); }
-            100% { border-color: #fff; background-color: rgba(255, 255, 255, 0); }
-        }
-        .button-flash {
-            animation: buttonFlash 0.5s ease;
-        }
+        /* Анимация buttonFlash удалена */
 
         .links {
             background: #1e2a3a;
@@ -243,6 +235,12 @@
             margin-bottom: 10px;
             font-weight: normal;
         }
+
+        /* Центрирование текста под списком программ */
+        .programs-footer p {
+            text-align: center;
+        }
+
         @media (max-width: 480px) {
             h2 {
                 font-size: 1.4rem;
@@ -352,8 +350,12 @@
                 </div>
             </li>
         </ul>
-        <p><em>Рекомендую: Happ для телефона, Hiddify для ПК.</em></p>
-        <p>Скачиваем клиент-приложение из указанных выше. Далее в приложении нажимаем «Вставить подписку из буфера обмена». Пингуем сервера и выбираем быстрый. и не забываем настраивать раздельное туннелирование приложений.</p>
+
+        <!-- Текст под списком программ центрирован -->
+        <div class="programs-footer">
+            <p><em>Рекомендую: Happ для телефона, Hiddify для ПК.</em></p>
+            <p>Скачиваем клиент-приложение из указанных выше. Далее в приложении нажимаем «Вставить подписку из буфера обмена». Пингуем сервера и выбираем быстрый. и не забываем настраивать раздельное туннелирование приложений.</p>
+        </div>
 
         <hr>
 
@@ -454,19 +456,10 @@
         }
 
         function copyConfig(button, url, originalText) {
-            // Копируем ссылку
             copyToClipboard(url);
-            
-            // Меняем текст на "✅ Скопировано!"
             button.innerText = '✅ Скопировано!';
-            
-            // Добавляем класс анимации
-            button.classList.add('button-flash');
-            
-            // Возвращаем оригинальный текст и убираем анимацию через 1 секунду
             setTimeout(() => {
                 button.innerText = originalText;
-                button.classList.remove('button-flash');
             }, 1000);
         }
     </script>
