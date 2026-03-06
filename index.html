@@ -184,15 +184,28 @@
             100% { transform: translateY(0) rotate(0deg); }
         }
 
-        /* Вращение планет по горизонтальной оси (только для DNS) */
-        .planet {
-            display: inline-block;
-            animation: spinHorizontal 3s linear infinite;
-            transform-style: preserve-3d;
-        }
+        /* Вращение по горизонтальной оси (общий ключевой кадр) */
         @keyframes spinHorizontal {
             from { transform: rotateY(0deg); }
             to { transform: rotateY(360deg); }
+        }
+
+        /* Асинхронное вращение для вопросительных знаков */
+        .question-left {
+            display: inline-block;
+            animation: spinHorizontal 2.5s linear infinite;
+            animation-delay: 0s;
+        }
+        .question-right {
+            display: inline-block;
+            animation: spinHorizontal 4s linear infinite;
+            animation-delay: 0.5s;
+        }
+
+        /* Вращение планет (для DNS) */
+        .planet {
+            display: inline-block;
+            animation: spinHorizontal 3s linear infinite;
         }
 
         .links {
@@ -331,7 +344,10 @@
             <p class="warning-footer" style="font-weight: 600; text-decoration: underline; margin:0; padding:0;">Используя приведённые ниже материалы, вы подтверждаете, что полностью осознаёте и принимаете ответственность за все свои действия.</p>
         </div>
 
-        <h2>❓ КАК пользоваться</h2>
+        <!-- Заголовок с вращающимися вопросительными знаками -->
+        <h2>
+            <span class="question-left">❓</span> КАК пользоваться <span class="question-right">❓</span>
+        </h2>
 
         <h3>📱 Программы поддерживающие конфигурацию</h3>
         <p class="copy-hint">(нажмите для скачивания)</p>
@@ -396,7 +412,6 @@
         </h2>
         <p>Нажмите на кнопку, чтобы конфигурация скопировалась в буфер обмена</p>
         <div class="button-group">
-            <!-- Кнопки без анимации, только текст -->
             <span class="button" onclick="copyConfig(this, 'https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-black/refs/heads/main/subscription.txt', '🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺')">🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺</span>
             <span class="button secondary" onclick="copyConfig(this, 'https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/subscription.txt', '📡РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ📡')">📡РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ📡</span>
         </div>
