@@ -51,7 +51,7 @@
         }
         @media (max-width: 480px) {
             .logo-container img {
-                max-width: 280px; /* возвращено исходное значение */
+                max-width: 280px;
             }
         }
         @media (min-width: 768px) {
@@ -60,7 +60,7 @@
                 padding: 30px;
             }
             .logo-container img {
-                max-width: 350px; /* возвращено исходное значение */
+                max-width: 350px;
             }
         }
         @media (min-width: 1024px) {
@@ -68,7 +68,7 @@
                 max-width: 950px;
             }
             .logo-container img {
-                max-width: 450px; /* возвращено исходное значение */
+                max-width: 450px;
             }
         }
 
@@ -159,22 +159,28 @@
             border: 2px solid #fff;
         }
 
-        /* Анимация для ракет: они летают вокруг слова */
-        .rocket {
-            display: inline-block;
-            animation: rocketFly 2.5s ease-in-out infinite;
-        }
+        /* Анимации для ракет: полностью асинхронные */
         .rocket-left {
+            display: inline-block;
+            animation: rocketFlyLeft 2s ease-in-out infinite;
             animation-delay: 0s;
         }
         .rocket-right {
+            display: inline-block;
+            animation: rocketFlyRight 3s ease-in-out infinite;
             animation-delay: 0.5s;
         }
-        @keyframes rocketFly {
+        @keyframes rocketFlyLeft {
             0% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-6px) rotate(15deg); }
+            30% { transform: translateY(-8px) rotate(20deg); }
+            70% { transform: translateY(5px) rotate(-10deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        @keyframes rocketFlyRight {
+            0% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-5px) rotate(10deg); }
             50% { transform: translateY(0) rotate(0deg); }
-            75% { transform: translateY(6px) rotate(-15deg); }
+            75% { transform: translateY(8px) rotate(-20deg); }
             100% { transform: translateY(0) rotate(0deg); }
         }
 
@@ -384,9 +390,9 @@
 
         <hr>
 
-        <!-- Заголовок Конфигурации с анимированными ракетами (летают вокруг) -->
+        <!-- Заголовок Конфигурации с асинхронными ракетами -->
         <h2>
-            <span class="rocket rocket-left">🚀</span> Конфигурации <span class="rocket rocket-right">🚀</span>
+            <span class="rocket-left">🚀</span> Конфигурации <span class="rocket-right">🚀</span>
         </h2>
         <p>Нажмите на кнопку, чтобы конфигурация скопировалась в буфер обмена</p>
         <div class="button-group">
