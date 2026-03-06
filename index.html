@@ -143,6 +143,7 @@
             border: 2px dashed #fff;
             cursor: pointer;
             box-shadow: none;
+            user-select: none;
         }
         .button:hover {
             border: 2px solid #fff;
@@ -342,11 +343,11 @@
         <hr>
 
         <h2>🌐 Конфигурации 🌐</h2>
-        <p>Нажмите на кнопку, чтобы перейти к конфигу (ссылка откроется в браузере):</p>
+        <!-- Изменённый текст инструкции -->
+        <p>Нажмите на кнопку, чтобы перейти к конфигурация скопировалась в буфер обмена</p>
         <div class="button-group">
-            <!-- Основная кнопка с флагами и капсом -->
-            <a href="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-black/refs/heads/main/Molestunnels_base64.txt" class="button" target="_blank">🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺</a>
-            <a href="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/Molestunnels_base64.txt" class="button secondary" target="_blank">📡 Резервный (при глушении)</a>
+            <span class="button" onclick="copyConfig(this, 'https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-black/refs/heads/main/Molestunnels_base64.txt', '🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺')">🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺</span>
+            <span class="button secondary" onclick="copyConfig(this, 'https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/Molestunnels_base64.txt', '📡 Резервный (при глушении)')">📡 Резервный (при глушении)</span>
         </div>
 
         <p class="post-buttons-message">⚡️ Всем быстрых туннелей, стабильных протоколов и интернета без DPI! ⚡️</p>
@@ -433,6 +434,16 @@
                 document.execCommand('copy');
             } catch (err) {}
             document.body.removeChild(textarea);
+        }
+
+        // Функция для копирования конфига с обратной связью на кнопке
+        function copyConfig(button, url, originalText) {
+            copyToClipboard(url);
+            // Меняем текст кнопки на "Скопировано!" на 1 секунду
+            button.innerText = '✅ Скопировано!';
+            setTimeout(() => {
+                button.innerText = originalText;
+            }, 1000);
         }
     </script>
 </body>
