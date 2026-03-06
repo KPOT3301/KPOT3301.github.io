@@ -51,9 +51,9 @@
             }
         }
 
-        /* Синий цвет для основного текста */
-        .blue-text {
-            color: #0066cc;
+        /* Чёрный цвет для основного текста */
+        .black-text {
+            color: #000000;
             letter-spacing: 1px;
         }
         /* Красный цвет для второй надписи */
@@ -249,8 +249,8 @@
         <img src="logo.jpg" alt="КРОТовые ТОННЕЛИ логотип">
     </div>
 
-    <!-- Первая надпись (бесплатный сервис) синяя -->
-    <div class="main-title blue-text">
+    <!-- Первая надпись (бесплатный сервис) чёрная -->
+    <div class="main-title black-text">
         <strong>Бесплатный сервис для изучения сетевых технологий</strong>
     </div>
 
@@ -278,7 +278,8 @@
         🚫 Не скачивать файлы свыше 100+ ГБ.<br>
         🚫 Не совершать противоправные действия на территории РФ.<br><br>
         У каждого свои проблемы свои провайдеры и т.д. т.п. если у вас есть какие то проблемы (не пингуется, что то не работает, не импортируется ссылка) то ищите решение вашей проблемы в ГУГЛЕ!<br><br>
-        <p style="font-weight: 600; text-decoration: underline; margin:0; padding:0;">Используя материалы ниже, вы автоматически соглашаетесь с предоставленными данными на территории Российской Федерации.</p>
+        <!-- Заменённый текст с подчёркиванием -->
+        <p style="font-weight: 600; text-decoration: underline; margin:0; padding:0;">Используя приведённые ниже материалы, вы подтверждаете, что полностью осознаёте и принимаете ответственность за все свои действия.</p>
     </div>
 
     <!-- Блок "❓ КАК пользоваться" (без вопросительного знака) -->
@@ -337,7 +338,19 @@
     </ul>
     <p><em>Рекомендую: Happ для телефона, Hiddify для ПК.</em></p>
 
-    <!-- DNS с подсказкой под заголовком -->
+    <hr>
+
+    <!-- Блок конфигураций -->
+    <h2>📡 Конфигурации</h2>
+    <p>Нажмите на кнопку, чтобы перейти к конфигу (ссылка откроется в браузере):</p>
+    <div class="button-group">
+        <a href="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-black/refs/heads/main/Molestunnels_base64.txt" class="button" target="_blank">🇷🇺 Основной туннель</a>
+        <a href="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/Molestunnels_base64.txt" class="button secondary" target="_blank">📡 Резервный (при глушении)</a>
+    </div>
+
+    <hr>
+
+    <!-- DNS блок -->
     <h3>🌐 Рекомендуемые DNS</h3>
     <p class="copy-hint">(нажмите для копирования)</p>
     <ul>
@@ -352,16 +365,6 @@
         <li><span class="clickable-dns" onclick="copyToClipboard('dns.astracat.ru')">dns.astracat.ru</span></li>
         <li><span class="clickable-dns" onclick="copyToClipboard('dns.malw.link')">dns.malw.link</span></li>
     </ul>
-
-    <hr>
-
-    <!-- Блок конфигураций -->
-    <h2>📡 Конфигурации</h2>
-    <p>Нажмите на кнопку, чтобы перейти к конфигу (ссылка откроется в браузере):</p>
-    <div class="button-group">
-        <a href="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-black/refs/heads/main/Molestunnels_base64.txt" class="button" target="_blank">🇷🇺 Основной туннель</a>
-        <a href="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/Molestunnels_base64.txt" class="button secondary" target="_blank">📡 Резервный (при глушении)</a>
-    </div>
 
     <hr>
 
