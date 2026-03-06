@@ -51,25 +51,32 @@
             }
         }
 
-        /* Красивая надпись под логотипом */
-        .subtitle {
-            text-align: center;
-            font-size: 1.8rem;
-            font-weight: 700;
+        /* Общий градиентный стиль для текста */
+        .gradient-text {
             background: linear-gradient(135deg, #e67e22, #f1c40f);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            margin: 0 0 20px 0;
-            padding: 0;
             letter-spacing: 1px;
-            animation: fadeIn 1.5s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Основная надпись (бесплатный сервис) */
+        .main-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 0 5px 0;
+            padding: 0;
+        }
+        /* Дополнительная надпись (про ИИ и мошенников) */
+        .sub-message {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 0 0 20px 0;
+            padding: 0;
+            opacity: 0.9;
         }
 
         h2 {
@@ -173,8 +180,11 @@
                 font-size: 0.75rem;
                 padding: 10px;
             }
-            .subtitle {
+            .main-title {
                 font-size: 1.5rem;
+            }
+            .sub-message {
+                font-size: 1rem;
             }
         }
         @media (min-width: 768px) {
@@ -206,9 +216,14 @@
         <img src="logo.jpg" alt="КРОТовые ТОННЕЛИ логотип">
     </div>
 
-    <!-- Красивая надпись под логотипом -->
-    <div class="subtitle">
+    <!-- Первая надпись (бесплатный сервис) -->
+    <div class="main-title gradient-text">
         <strong>Бесплатный сервис для изучения сетевых технологий</strong>
+    </div>
+
+    <!-- Вторая надпись (про ИИ и мошенников) -->
+    <div class="sub-message gradient-text">
+        <strong>Данный сервис создан ИИ ботами под влиянием мошенников!</strong>
     </div>
 
     <!-- Блок предупреждения (полная версия) -->
