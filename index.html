@@ -51,7 +51,7 @@
         }
         @media (max-width: 480px) {
             .logo-container img {
-                max-width: 320px; /* возвращено к исходному размеру */
+                max-width: 280px; /* возвращено исходное значение */
             }
         }
         @media (min-width: 768px) {
@@ -60,7 +60,7 @@
                 padding: 30px;
             }
             .logo-container img {
-                max-width: 400px;
+                max-width: 350px; /* возвращено исходное значение */
             }
         }
         @media (min-width: 1024px) {
@@ -68,7 +68,7 @@
                 max-width: 950px;
             }
             .logo-container img {
-                max-width: 500px;
+                max-width: 450px; /* возвращено исходное значение */
             }
         }
 
@@ -159,39 +159,33 @@
             border: 2px solid #fff;
         }
 
-        /* Анимация для ракет, летающих вокруг заголовка */
-        .rocket-container {
-            display: inline-block;
-            position: relative;
-            width: 2.2rem;
-            height: 2.2rem;
-            vertical-align: middle;
-            margin: 0 5px;
-        }
+        /* Анимация для ракет: они летают вокруг слова */
         .rocket {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 1.5rem;
-            height: 1.5rem;
-            margin-left: -0.75rem;
-            margin-top: -0.75rem;
-            animation: orbit 3s linear infinite;
+            display: inline-block;
+            animation: rocketFly 2.5s ease-in-out infinite;
         }
-        .rocket-left .rocket {
-            animation: orbitLeft 3s linear infinite;
+        .rocket-left {
+            animation-delay: 0s;
         }
-        .rocket-right .rocket {
-            animation: orbitRight 3s linear infinite;
+        .rocket-right {
+            animation-delay: 0.5s;
+        }
+        @keyframes rocketFly {
+            0% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-6px) rotate(15deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(6px) rotate(-15deg); }
+            100% { transform: translateY(0) rotate(0deg); }
         }
 
-        @keyframes orbitLeft {
-            0% { transform: rotate(0deg) translateX(1.2rem) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(1.2rem) rotate(-360deg); }
+        /* Анимация вращения для планет */
+        .planet {
+            display: inline-block;
+            animation: spin 4s linear infinite;
         }
-        @keyframes orbitRight {
-            0% { transform: rotate(0deg) translateX(-1.2rem) rotate(0deg); }
-            100% { transform: rotate(-360deg) translateX(-1.2rem) rotate(360deg); }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .links {
@@ -390,15 +384,9 @@
 
         <hr>
 
-        <!-- Заголовок Конфигурации с ракетами, летающими вокруг -->
-        <h2 style="display: flex; align-items: center; justify-content: center; gap: 5px;">
-            <span class="rocket-container rocket-left">
-                <span class="rocket">🚀</span>
-            </span>
-            Конфигурации
-            <span class="rocket-container rocket-right">
-                <span class="rocket">🚀</span>
-            </span>
+        <!-- Заголовок Конфигурации с анимированными ракетами (летают вокруг) -->
+        <h2>
+            <span class="rocket rocket-left">🚀</span> Конфигурации <span class="rocket rocket-right">🚀</span>
         </h2>
         <p>Нажмите на кнопку, чтобы конфигурация скопировалась в буфер обмена</p>
         <div class="button-group">
@@ -413,9 +401,9 @@
 
         <hr>
 
-        <!-- Заголовок Рекомендуемые DNS с глобусами -->
+        <!-- Заголовок Рекомендуемые DNS с вращающимися планетами -->
         <h3>
-            🌐 Рекомендуемые DNS 🌐
+            <span class="planet">🌐</span> Рекомендуемые DNS <span class="planet">🌐</span>
         </h3>
         <p class="copy-hint">(нажмите для копирования)</p>
         <ul class="dns-list">
