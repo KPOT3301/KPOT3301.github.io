@@ -149,32 +149,31 @@
             border-top: 2px dashed #b0bec5;
             margin: 32px 0;
         }
-        /* Основные списки */
         ul, ol {
             padding-left: 24px;
             margin: 10px 0;
         }
         li {
-            margin: 8px 0;
+            margin: 12px 0;
             font-size: 1rem;
         }
-        /* Вложенные списки для программ */
-        ul ul {
-            margin-top: 5px;
-            margin-bottom: 5px;
-            list-style-type: none;  /* убираем маркеры */
-            padding-left: 20px;
+        /* Контейнер для ссылок приложений в строку */
+        .app-links {
+            display: inline;
+            word-break: break-word;
         }
-        ul ul li {
-            margin: 3px 0;
-        }
-        ul ul li a {
+        .app-links a {
             color: #0066cc;
             text-decoration: none;
             font-weight: 500;
+            white-space: nowrap;
         }
-        ul ul li a:hover {
+        .app-links a:hover {
             text-decoration: underline;
+        }
+        .app-links .separator {
+            margin: 0 4px;
+            color: #666;
         }
         .footer {
             text-align: center;
@@ -216,6 +215,9 @@
             }
             .main-title, .sub-message {
                 font-size: 1.3rem;
+            }
+            .app-links a {
+                white-space: normal; /* на мобильных разрешаем перенос */
             }
         }
         @media (min-width: 768px) {
@@ -282,37 +284,54 @@
     <!-- Блок "❓ КАК пользоваться" (без вопросительного знака) -->
     <h2>❓ КАК пользоваться</h2>
 
-    <!-- Программы с ссылками на скачивание -->
+    <!-- Программы с ссылками на скачивание, отформатированные в строку -->
     <h3>📱 Программы (поддерживающие конфигурацию)</h3>
     <ul>
-        <li><strong>Android 🤖:</strong>
-            <ul>
-                <li><a href="https://play.google.com/store/apps/details?id=com.happproxy" target="_blank" rel="noopener noreferrer">Happ</a></li>
-                <li><a href="https://github.com/KaringX/karing/releases/download/v1.2.13.1600/karing_1.2.13.1600_android_arm.apk" target="_blank" rel="noopener noreferrer">Karing</a></li>
-                <li><a href="https://github.com/2dust/v2rayNG/releases/download/1.10.32/v2RayNG_1.10.32_universal.apk" target="_blank" rel="noopener noreferrer">v2RayNG</a></li>
-                <li><a href="https://play.google.com/store/apps/details?id=app.hiddify.com" target="_blank" rel="noopener noreferrer">Hiddify</a></li>
-                <li><a href="https://play.google.com/store/apps/details?id=com.v2raytun.android" target="_blank" rel="noopener noreferrer">v2RayTun</a></li>
-                <li>и др.</li>
-            </ul>
+        <li>
+            <strong>Android 🤖:</strong>
+            <div class="app-links">
+                <a href="https://play.google.com/store/apps/details?id=com.happproxy" target="_blank" rel="noopener noreferrer">Happ</a>
+                <span class="separator">|</span>
+                <a href="https://github.com/KaringX/karing/releases/download/v1.2.13.1600/karing_1.2.13.1600_android_arm.apk" target="_blank" rel="noopener noreferrer">Karing</a>
+                <span class="separator">|</span>
+                <a href="https://github.com/2dust/v2rayNG/releases/download/1.10.32/v2RayNG_1.10.32_universal.apk" target="_blank" rel="noopener noreferrer">v2RayNG</a>
+                <span class="separator">|</span>
+                <a href="https://play.google.com/store/apps/details?id=app.hiddify.com" target="_blank" rel="noopener noreferrer">Hiddify</a>
+                <span class="separator">|</span>
+                <a href="https://play.google.com/store/apps/details?id=com.v2raytun.android" target="_blank" rel="noopener noreferrer">v2RayTun</a>
+                <span class="separator">|</span>
+                <span>и др.</span>
+            </div>
         </li>
-        <li><strong>iOS 🍏:</strong>
-            <ul>
-                <li><a href="https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532" target="_blank" rel="noopener noreferrer">Hiddify</a></li>
-                <li><a href="https://apps.apple.com/ru/app/happ-proxy-utility-plus/id6746188973" target="_blank" rel="noopener noreferrer">Happ</a></li>
-                <li><a href="https://apps.apple.com/us/app/karing/id6472431552" target="_blank" rel="noopener noreferrer">Karing</a></li>
-                <li><a href="https://apps.apple.com/ru/app/v2raytun/id6476628951" target="_blank" rel="noopener noreferrer">v2RayTun</a></li>
-                <li>и др.</li>
-            </ul>
+        <li>
+            <strong>iOS 🍏:</strong>
+            <div class="app-links">
+                <a href="https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532" target="_blank" rel="noopener noreferrer">Hiddify</a>
+                <span class="separator">|</span>
+                <a href="https://apps.apple.com/ru/app/happ-proxy-utility-plus/id6746188973" target="_blank" rel="noopener noreferrer">Happ</a>
+                <span class="separator">|</span>
+                <a href="https://apps.apple.com/us/app/karing/id6472431552" target="_blank" rel="noopener noreferrer">Karing</a>
+                <span class="separator">|</span>
+                <a href="https://apps.apple.com/ru/app/v2raytun/id6476628951" target="_blank" rel="noopener noreferrer">v2RayTun</a>
+                <span class="separator">|</span>
+                <span>и др.</span>
+            </div>
         </li>
-        <li><strong>Windows 💻:</strong>
-            <ul>
-                <li><a href="https://github.com/2dust/v2rayN/releases/download/7.17.3/v2rayN-windows-64-desktop.zip" target="_blank" rel="noopener noreferrer">v2RayN</a></li>
-                <li><a href="https://github.com/Happ-proxy/happ-desktop/releases/download/2.0.3/setup-Happ.x64.exe" target="_blank" rel="noopener noreferrer">Happ</a></li>
-                <li><a href="https://github.com/KaringX/karing/releases/download/v1.2.13.1600/karing_1.2.13.1600_windows_x64.exe" target="_blank" rel="noopener noreferrer">Karing</a></li>
-                <li><a href="https://github.com/hiddify/hiddify-app/releases/download/v2.5.7/Hiddify-Windows-Setup-x64.exe" target="_blank" rel="noopener noreferrer">Hiddify</a></li>
-                <li><a href="https://github.com/mdf45/v2raytun/releases/download/v3.7.10/v2RayTun_Setup.exe" target="_blank" rel="noopener noreferrer">v2RayTun</a></li>
-                <li>и др.</li>
-            </ul>
+        <li>
+            <strong>Windows 💻:</strong>
+            <div class="app-links">
+                <a href="https://github.com/2dust/v2rayN/releases/download/7.17.3/v2rayN-windows-64-desktop.zip" target="_blank" rel="noopener noreferrer">v2RayN</a>
+                <span class="separator">|</span>
+                <a href="https://github.com/Happ-proxy/happ-desktop/releases/download/2.0.3/setup-Happ.x64.exe" target="_blank" rel="noopener noreferrer">Happ</a>
+                <span class="separator">|</span>
+                <a href="https://github.com/KaringX/karing/releases/download/v1.2.13.1600/karing_1.2.13.1600_windows_x64.exe" target="_blank" rel="noopener noreferrer">Karing</a>
+                <span class="separator">|</span>
+                <a href="https://github.com/hiddify/hiddify-app/releases/download/v2.5.7/Hiddify-Windows-Setup-x64.exe" target="_blank" rel="noopener noreferrer">Hiddify</a>
+                <span class="separator">|</span>
+                <a href="https://github.com/mdf45/v2raytun/releases/download/v3.7.10/v2RayTun_Setup.exe" target="_blank" rel="noopener noreferrer">v2RayTun</a>
+                <span class="separator">|</span>
+                <span>и др.</span>
+            </div>
         </li>
     </ul>
     <p><em>Рекомендую: Happ для телефона, Hiddify для ПК.</em></p>
