@@ -32,13 +32,12 @@
         }
         .container {
             max-width: 100%;
-            background: transparent; /* прозрачный фон */
+            background: transparent;
             padding: 20px 16px;
             margin: 0 auto;
             min-height: 100vh;
             position: relative;
             z-index: 1;
-            /* backdrop-filter удалён */
         }
         .logo-container {
             text-align: center;
@@ -401,7 +400,7 @@
                 if (y > canvas.height && Math.random() > 0.975) {
                     drops[i] = 0;
                 }
-                drops[i] += 0.5;
+                drops[i] += 0.3; // скорость уменьшена для более медленного падения
             }
             requestAnimationFrame(drawMatrix);
         }
