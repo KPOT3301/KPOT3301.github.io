@@ -204,7 +204,6 @@
             margin: 0 4px;
             color: #aaa;
         }
-        /* Стиль для сообщения после кнопок */
         .post-buttons-message {
             text-align: center;
             margin: 20px 0;
@@ -347,7 +346,6 @@
             <a href="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/Molestunnels_base64.txt" class="button secondary" target="_blank">📡 Резервный (при глушении)</a>
         </div>
 
-        <!-- Перенесённое сообщение -->
         <p class="post-buttons-message">⚡️ Всем быстрых туннелей, стабильных протоколов и интернета без DPI! ⚡️</p>
 
         <hr>
@@ -368,8 +366,6 @@
         </ul>
 
         <hr>
-
-        <!-- Блок footer удалён, так как его содержимое перемещено выше -->
     </div>
 
     <script>
@@ -389,11 +385,17 @@
         }
 
         function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            // Меньшее затухание (0.03) для более ярких и долгих следов
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.03)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             ctx.fillStyle = '#0f0';
             ctx.font = fontSize + 'px monospace';
+            // Добавляем свечение для яркости
+            ctx.shadowColor = '#0f0';
+            ctx.shadowBlur = 12;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 0;
 
             for (let i = 0; i < drops.length; i++) {
                 const text = chars[Math.floor(Math.random() * chars.length)];
@@ -405,7 +407,7 @@
                 if (y > canvas.height && Math.random() > 0.975) {
                     drops[i] = 0;
                 }
-                drops[i] += 0.5;
+                drops[i] += 0.6; // немного увеличили скорость
             }
             requestAnimationFrame(drawMatrix);
         }
