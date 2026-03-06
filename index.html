@@ -11,17 +11,17 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.5;
-            color: #222;
+            color: #f1f1f1;                 /* светлый текст */
             margin: 0;
             padding: 0;
-            background: #f2f4f8;
+            background: #1a1a2e;              /* тёмный фон */
         }
         .container {
             max-width: 100%;
-            background: white;
+            background: #16213e;               /* тёмный контейнер */
             padding: 20px 16px;
             margin: 0 auto;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
             min-height: 100vh;
         }
         .logo-container {
@@ -32,7 +32,7 @@
             max-width: 90%;
             height: auto;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
         @media (max-width: 480px) {
             .logo-container img {
@@ -50,12 +50,13 @@
             }
         }
 
+        /* Цвета для надписей (в тёмной теме) */
         .black-text {
-            color: #000000;
+            color: #f1f1f1;                    /* был чёрный, стал светлым */
             letter-spacing: 1px;
         }
         .red-text {
-            color: #cc0000;
+            color: #ff6b6b;                     /* ярко-красный для читаемости */
             letter-spacing: 1px;
         }
 
@@ -74,20 +75,21 @@
         h2 {
             font-size: 1.6rem;
             margin: 28px 0 16px;
-            color: #2c3e50;
+            color: #e0e0e0;
         }
         h3 {
             font-size: 1.3rem;
             margin: 20px 0 10px;
-            color: #34495e;
+            color: #e0e0e0;
         }
         .warning {
-            background: #fff8e5;
-            border-left: 5px solid #f1c40f;
+            background: #2c2a3a;                 /* тёмный фон для блока предупреждения */
+            border-left: 5px solid #e67e22;       /* оранжевая полоса */
             padding: 14px 16px;
             margin: 20px 0;
             border-radius: 8px;
             font-size: 0.95rem;
+            color: #f1f1f1;
         }
         .warning-footer {
             font-size: 1.05rem;
@@ -111,27 +113,27 @@
             transition: background 0.2s, transform 0.1s;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
         .button:active {
             transform: scale(0.98);
             background: #d35400;
         }
         .button.secondary {
-            background: #3498db;
+            background: #4a6fa5;                  /* приглушённый синий */
         }
         .button.secondary:active {
-            background: #2980b9;
+            background: #3b5a8c;
         }
         .links {
-            background: #ecf0f1;
+            background: #1e2a3a;
             padding: 18px 14px;
             border-radius: 12px;
             margin: 25px 0;
         }
         .links code {
             display: block;
-            background: #1e2b3a;
+            background: #0f1a2b;
             color: #ecf0f1;
             padding: 14px;
             border-radius: 10px;
@@ -144,7 +146,7 @@
         }
         hr {
             border: 0;
-            border-top: 2px dashed #b0bec5;
+            border-top: 2px dashed #4a4a5e;       /* тёмная линия */
             margin: 32px 0;
         }
         ul, ol {
@@ -160,7 +162,7 @@
             word-break: break-word;
         }
         .app-links a {
-            color: #0066cc;
+            color: #70a9ff;                         /* яркие синие ссылки */
             text-decoration: none;
             font-weight: 500;
             white-space: nowrap;
@@ -170,11 +172,11 @@
         }
         .app-links .separator {
             margin: 0 4px;
-            color: #666;
+            color: #aaa;
         }
         .footer {
             text-align: center;
-            color: #5d6d7e;
+            color: #aaa;
             margin-top: 30px;
             font-size: 0.9rem;
             padding: 10px 0;
@@ -185,12 +187,12 @@
             display: inline-block;
         }
         .clickable-dns:hover {
-            color: #0066cc;
+            color: #70a9ff;
             text-decoration: underline;
         }
         .copy-hint {
             font-size: 0.9rem;
-            color: #666;
+            color: #b0b0b0;
             margin-top: -5px;
             margin-bottom: 10px;
             font-weight: normal;
