@@ -168,11 +168,19 @@
         .clickable-dns {
             cursor: pointer;
             transition: color 0.2s;
-            display: inline-block; /* чтобы область клика была только по тексту */
+            display: inline-block;
         }
         .clickable-dns:hover {
             color: #0066cc;
             text-decoration: underline;
+        }
+        /* Подсказка для копирования (не жирная) */
+        .copy-hint {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: -5px;
+            margin-bottom: 10px;
+            font-weight: normal;
         }
         /* Мобильная адаптация */
         @media (max-width: 480px) {
@@ -263,7 +271,9 @@
     </ul>
     <p><em>Рекомендую: Happ для телефона, Hiddify для ПК.</em></p>
 
-    <h3>🌐 Рекомендуемые DNS (нажмите для копирования)</h3>
+    <!-- DNS с подсказкой под заголовком -->
+    <h3>🌐 Рекомендуемые DNS</h3>
+    <p class="copy-hint">(нажмите для копирования)</p>
     <ul>
         <li><span class="clickable-dns" onclick="copyToClipboard('1.1.1.1')">1.1.1.1</span></li>
         <li><span class="clickable-dns" onclick="copyToClipboard('8.8.8.8')">8.8.8.8</span></li>
@@ -298,7 +308,6 @@
 <!-- Скрипт для копирования в буфер обмена -->
 <script>
 function copyToClipboard(text) {
-    // Создаём временный элемент textarea
     const textarea = document.createElement('textarea');
     textarea.value = text;
     document.body.appendChild(textarea);
