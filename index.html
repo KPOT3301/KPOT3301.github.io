@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>ТОННЕЛИ</title>
     <style>
+        /* ... все ваши стили остаются без изменений ... */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -438,7 +439,7 @@
         <hr>
     </div>
 
-    <!-- Flag Counter с новым ID TjDi и размером m -->
+    <!-- Flag Counter -->
     <div style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
         <a href="https://info.flagcounter.com/TjDi">
             <img src="https://s01.flagcounter.com/map/TjDi/size_m/txt_000000/border_CCCCCC/pageviews_1/viewers_0/flags_0/" alt="Flag Counter" border="0">
@@ -446,47 +447,43 @@
     </div>
 
     <script>
-        const canvas = document.getElementById('matrix-canvas');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+[]{}|;:,.<>?/\\~`';
-        const fontSize = 16;
-        const columns = Math.floor(canvas.width / fontSize);
-
-        const drops = [];
-        for (let i = 0; i < columns; i++) {
-            drops[i] = Math.floor(Math.random() * -canvas.height);
+        // Функция копирования (без изменений)
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+            } catch (err) {}
+            document.body.removeChild(textarea);
         }
 
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        function copyConfig(button, url, originalText) {
+            copyToClipboard(url);
+            button.innerText = '✅ Скопировано!';
+            setTimeout(() => {
+                button.innerText = originalText;
+            }, 1000);
+        }
 
-            ctx.fillStyle = '#0f0';
-            ctx.font = fontSize + 'px monospace';
-
-            for (let i = 0; i < drops.length; i++) {
-                const text = chars[Math.floor(Math.random() * chars.length)];
-                const x = i * fontSize;
-                const y = drops[i] * fontSize;
-
-                ctx.fillText(text, x, y);
-
-                if (y > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i] += 0.3;
+        // Матрица — запускаем после полной загрузки страницы
+        window.addEventListener('load', function() {
+            const canvas = document.getElementById('matrix-canvas');
+            if (!canvas) {
+                console.error('Canvas not found!');
+                return;
             }
-            requestAnimationFrame(drawMatrix);
-        }
+            const ctx = canvas.getContext('2d');
+            if (!ctx) {
+                console.error('Canvas context error');
+                return;
+            }
 
-        drawMatrix();
-
-        window.addEventListener('resize', () => {
+            // Устанавливаем размер canvas равным размеру окна
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            const newColumns = Math.floor(canvas.width / fontSize);
-            if (newColumns 
+
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+[]{}|;:,.<>?/\\~`';
+            const fontSize = 16;
+            const columns = Math.floor(canvas.wi
