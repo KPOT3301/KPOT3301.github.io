@@ -444,115 +444,48 @@
     </div>
 
     <script>
-        // Функции копирования (без изменений)
-        function copyToClipboard(text) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            document.body.appendChild(textarea);
-            textarea.select();
-            try {
-                document.execCommand('copy');
-            } catch (err) {}
-            document.body.removeChild(textarea);
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+[]{}|;:,.<>?/\\~`';
+        const fontSize = 16;
+        const columns = Math.floor(canvas.width / fontSize);
+
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = Math.floor(Math.random() * -canvas.height);
         }
 
-        function copyConfig(button, url, originalText) {
-            copyToClipboard(url);
-            button.innerText = '✅ Скопировано!';
-            setTimeout(() => {
-                button.innerText = originalText;
-            }, 1000);
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0f0';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                const x = i * fontSize;
+                const y = drops[i] * fontSize;
+
+                ctx.fillText(text, x, y);
+
+                if (y > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i] += 0.3;
+            }
+            requestAnimationFrame(drawMatrix);
         }
 
-        // Матрица — запускаем после полной загрузки DOM с поддержкой мобильных
-        document.addEventListener('DOMContentLoaded', function() {
-            const canvas = document.getElementById('matrix-canvas');
-            if (!canvas) {
-                console.error('Canvas не найден');
-                return;
-            }
+        drawMatrix();
 
-            let ctx = canvas.getContext('2d');
-            if (!ctx) {
-                console.error('Ошибка получения контекста canvas');
-                return;
-            }
-
-            let width, height;
-            let animationFrame;
-
-            function resizeCanvas() {
-                width = window.innerWidth;
-                height = window.innerHeight;
-                canvas.width = width;
-                canvas.height = height;
-            }
-            resizeCanvas();
-
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+[]{}|;:,.<>?/\\~`';
-            const fontSize = 16;
-            let columns = Math.floor(width / fontSize);
-            let drops = [];
-
-            function initDrops() {
-                columns = Math.floor(width / fontSize);
-                drops = [];
-                for (let i = 0; i < columns; i++) {
-                    drops[i] = Math.floor(Math.random() * -height);
-                }
-            }
-            initDrops();
-
-            function drawMatrix() {
-                if (!ctx) return;
-                // Немного увеличили прозрачность для более яркого эффекта
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-                ctx.fillRect(0, 0, width, height);
-
-                ctx.fillStyle = '#0f0';
-                ctx.font = fontSize + 'px monospace';
-                // Добавили свечение для лучшей видимости на телефонах
-                ctx.shadowColor = '#0f0';
-                ctx.shadowBlur = 5;
-                ctx.shadowOffsetX = 0;
-                ctx.shadowOffsetY = 0;
-
-                for (let i = 0; i < drops.length; i++) {
-                    const text = chars[Math.floor(Math.random() * chars.length)];
-                    const x = i * fontSize;
-                    const y = drops[i] * fontSize;
-
-                    ctx.fillText(text, x, y);
-
-                    if (y > height && Math.random() > 0.975) {
-                        drops[i] = 0;
-                    }
-                    drops[i] += 0.3;
-                }
-                animationFrame = requestAnimationFrame(drawMatrix);
-            }
-
-            drawMatrix();
-
-            window.addEventListener('resize', function() {
-                resizeCanvas();
-                initDrops();
-            });
-
-            // Экономия ресурсов, когда страница не активна
-            document.addEventListener('visibilitychange', function() {
-                if (document.hidden) {
-                    if (animationFrame) {
-                        cancelAnimationFrame(animationFrame);
-                        animationFrame = null;
-                    }
-                } else {
-                    if (!animationFrame) {
-                        drawMatrix();
-                    }
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            const newColumns = Math.floor(canvas.width / fontSize);
+            if (newColumns > drops.length) {
+                for (let i = drops.length; i < newColumns; i++) 
