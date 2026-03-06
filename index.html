@@ -51,13 +51,9 @@
             }
         }
 
-        /* Градиент в цветах флага России (синий, белый, красный) */
-        .russian-flag {
-            background: linear-gradient(to right, #0039A6, #FFFFFF, #D52B1E);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        /* Синий цвет для текста (хорошо читается) */
+        .blue-text {
+            color: #0066cc; /* насыщенный синий */
             letter-spacing: 1px;
         }
 
@@ -210,12 +206,12 @@
     </div>
 
     <!-- Первая надпись (бесплатный сервис) -->
-    <div class="main-title russian-flag">
+    <div class="main-title blue-text">
         <strong>Бесплатный сервис для изучения сетевых технологий</strong>
     </div>
 
     <!-- Вторая надпись (про ИИ и мошенников) подчёркнутая -->
-    <div class="sub-message russian-flag">
+    <div class="sub-message blue-text">
         <strong>Данный сервис создан ИИ ботами под влиянием мошенников!</strong>
     </div>
 
