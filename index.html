@@ -131,7 +131,7 @@
         }
         .button {
             display: block;
-            background: transparent;        /* полностью прозрачный фон */
+            background: transparent;
             color: white;
             text-decoration: none;
             padding: 16px 20px;
@@ -140,17 +140,16 @@
             font-size: 1.1rem;
             text-align: center;
             transition: border 0.2s, transform 0.1s;
-            border: 2px dashed #fff;        /* белая пунктирная рамка */
+            border: 2px dashed #fff;
             cursor: pointer;
-            box-shadow: none;                /* убрали свечение */
+            box-shadow: none;
         }
         .button:hover {
-            border: 2px solid #fff;          /* при наведении рамка становится сплошной */
+            border: 2px solid #fff;
         }
         .button:active {
             transform: scale(0.98);
         }
-        /* Вторичная кнопка (Резервный) теперь имеет такой же стиль, без отдельного цвета */
         .button.secondary {
             background: transparent;
             border: 2px dashed #fff;
@@ -345,7 +344,8 @@
         <h2>🌐 Конфигурации 🌐</h2>
         <p>Нажмите на кнопку, чтобы перейти к конфигу (ссылка откроется в браузере):</p>
         <div class="button-group">
-            <a href="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-black/refs/heads/main/Molestunnels_base64.txt" class="button" target="_blank">🇷🇺 Основной туннель</a>
+            <!-- Основная кнопка с флагами и капсом -->
+            <a href="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-black/refs/heads/main/Molestunnels_base64.txt" class="button" target="_blank">🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺</a>
             <a href="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/Molestunnels_base64.txt" class="button secondary" target="_blank">📡 Резервный (при глушении)</a>
         </div>
 
