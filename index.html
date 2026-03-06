@@ -24,6 +24,18 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             min-height: 100vh;
         }
+        /* Стили для логотипа */
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo-container img {
+            max-width: 200px; /* Ограничиваем размер на больших экранах */
+            width: 100%;
+            height: auto;
+            border-radius: 12px; /* Если нужны скруглённые углы */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
         h1 {
             font-size: 1.9rem;
             color: #1e2b3a;
@@ -139,6 +151,9 @@
                 font-size: 0.75rem;
                 padding: 10px;
             }
+            .logo-container img {
+                max-width: 150px; /* Чуть меньше на мобильных */
+            }
         }
         /* Планшеты */
         @media (min-width: 768px) {
@@ -155,6 +170,9 @@
                 padding: 14px 30px;
                 font-size: 1rem;
             }
+            .logo-container img {
+                max-width: 250px;
+            }
         }
         /* Десктоп */
         @media (min-width: 1024px) {
@@ -162,17 +180,15 @@
                 max-width: 950px;
             }
         }
-        /* Улучшаем читаемость */
-        .note {
-            background: #f9f9f9;
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 0.95rem;
-        }
     </style>
 </head>
 <body>
 <div class="container">
+    <!-- Логотип вверху страницы -->
+    <div class="logo-container">
+        <img src="logo.jpg" alt="КРОТовые ТОННЕЛИ логотип">
+    </div>
+
     <h1>
         <span>🇷🇺 КРОТовые ТОННЕЛИ</span>
     </h1>
