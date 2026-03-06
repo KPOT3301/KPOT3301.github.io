@@ -385,17 +385,12 @@
         }
 
         function drawMatrix() {
-            // Меньшее затухание (0.03) для более ярких и долгих следов
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.03)';
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             ctx.fillStyle = '#0f0';
             ctx.font = fontSize + 'px monospace';
-            // Добавляем свечение для яркости
-            ctx.shadowColor = '#0f0';
-            ctx.shadowBlur = 12;
-            ctx.shadowOffsetX = 0;
-            ctx.shadowOffsetY = 0;
+            // Свечение убрано, скорость 0.5 (как было)
 
             for (let i = 0; i < drops.length; i++) {
                 const text = chars[Math.floor(Math.random() * chars.length)];
@@ -407,7 +402,7 @@
                 if (y > canvas.height && Math.random() > 0.975) {
                     drops[i] = 0;
                 }
-                drops[i] += 0.6; // немного увеличили скорость
+                drops[i] += 0.5;
             }
             requestAnimationFrame(drawMatrix);
         }
