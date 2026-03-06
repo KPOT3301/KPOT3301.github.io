@@ -51,7 +51,7 @@
         }
         @media (max-width: 480px) {
             .logo-container img {
-                max-width: 350px; /* увеличено */
+                max-width: 350px;
             }
         }
         @media (min-width: 768px) {
@@ -60,7 +60,7 @@
                 padding: 30px;
             }
             .logo-container img {
-                max-width: 550px; /* увеличено */
+                max-width: 550px;
             }
         }
         @media (min-width: 1024px) {
@@ -68,7 +68,7 @@
                 max-width: 950px;
             }
             .logo-container img {
-                max-width: 700px; /* увеличено */
+                max-width: 700px;
             }
         }
 
@@ -159,7 +159,7 @@
             border: 2px solid #fff;
         }
 
-        /* Асинхронные анимации ракет */
+        /* Асинхронные анимации ракет (только для заголовка Конфигурации) */
         .rocket-left {
             display: inline-block;
             animation: rocketFlyLeft 2s ease-in-out infinite;
@@ -184,8 +184,8 @@
             100% { transform: translateY(0) rotate(0deg); }
         }
 
-        /* Вращение планет по горизонтальной оси (3D) */
-        .planet, .spin-horizontal {
+        /* Вращение планет по горизонтальной оси (только для DNS) */
+        .planet {
             display: inline-block;
             animation: spinHorizontal 3s linear infinite;
             transform-style: preserve-3d;
@@ -396,8 +396,9 @@
         </h2>
         <p>Нажмите на кнопку, чтобы конфигурация скопировалась в буфер обмена</p>
         <div class="button-group">
-            <span class="button" onclick="copyConfig(this, 'https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-black/refs/heads/main/subscription.txt', '<span class=\"spin-horizontal\">🇷🇺</span> ОСНОВНОЙ ТОННЕЛЬ <span class=\"spin-horizontal\">🇷🇺</span>')"><span class="spin-horizontal">🇷🇺</span> ОСНОВНОЙ ТОННЕЛЬ <span class="spin-horizontal">🇷🇺</span></span>
-            <span class="button secondary" onclick="copyConfig(this, 'https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/subscription.txt', '<span class=\"spin-horizontal\">📡</span>РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ<span class=\"spin-horizontal\">📡</span>')"><span class="spin-horizontal">📡</span>РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ<span class="spin-horizontal">📡</span></span>
+            <!-- Кнопки без анимации, только текст -->
+            <span class="button" onclick="copyConfig(this, 'https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-black/refs/heads/main/subscription.txt', '🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺')">🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺</span>
+            <span class="button secondary" onclick="copyConfig(this, 'https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/subscription.txt', '📡РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ📡')">📡РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ📡</span>
         </div>
 
         <p class="post-buttons-message">
@@ -491,11 +492,11 @@
             document.body.removeChild(textarea);
         }
 
-        function copyConfig(button, url, originalHTML) {
+        function copyConfig(button, url, originalText) {
             copyToClipboard(url);
             button.innerText = '✅ Скопировано!';
             setTimeout(() => {
-                button.innerHTML = originalHTML;
+                button.innerText = originalText;
             }, 1000);
         }
     </script>
