@@ -32,13 +32,13 @@
         }
         .container {
             max-width: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: transparent; /* прозрачный фон */
             padding: 20px 16px;
             margin: 0 auto;
             min-height: 100vh;
             position: relative;
             z-index: 1;
-            backdrop-filter: blur(1px);
+            /* backdrop-filter удалён */
         }
         .logo-container {
             text-align: center;
@@ -390,7 +390,6 @@
 
             ctx.fillStyle = '#0f0';
             ctx.font = fontSize + 'px monospace';
-            // Свечение убрано, скорость 0.5 (как было)
 
             for (let i = 0; i < drops.length; i++) {
                 const text = chars[Math.floor(Math.random() * chars.length)];
