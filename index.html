@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>🇷🇺 КРОТовые ТОННЕЛИ</title>
     <style>
-        /* все стили остаются без изменений */
         * {
             box-sizing: border-box;
         }
@@ -25,6 +24,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             min-height: 100vh;
         }
+        /* Логотип по центру */
         .logo-container {
             text-align: center;
             margin-bottom: 10px;
@@ -50,14 +50,28 @@
                 max-width: 450px;
             }
         }
+
+        /* Красивая надпись под логотипом */
         .subtitle {
             text-align: center;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1e2b3a;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #e67e22, #f1c40f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
             margin: 0 0 20px 0;
             padding: 0;
+            letter-spacing: 1px;
+            animation: fadeIn 1.5s ease;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         h2 {
             font-size: 1.6rem;
             margin: 28px 0 16px;
@@ -146,6 +160,7 @@
             font-size: 0.9rem;
             padding: 10px 0;
         }
+        /* Мобильная адаптация */
         @media (max-width: 480px) {
             h2 {
                 font-size: 1.4rem;
@@ -159,7 +174,7 @@
                 padding: 10px;
             }
             .subtitle {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
         }
         @media (min-width: 768px) {
@@ -191,7 +206,7 @@
         <img src="logo.jpg" alt="КРОТовые ТОННЕЛИ логотип">
     </div>
 
-    <!-- Текст под логотипом -->
+    <!-- Красивая надпись под логотипом -->
     <div class="subtitle">
         <strong>Бесплатный сервис для изучения сетевых технологий</strong>
     </div>
