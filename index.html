@@ -159,7 +159,7 @@
             border: 2px solid #fff;
         }
 
-        /* Асинхронные анимации ракет (только для заголовка Конфигурации) */
+        /* Асинхронные анимации ракет */
         .rocket-left {
             display: inline-block;
             animation: rocketFlyLeft 2s ease-in-out infinite;
@@ -184,13 +184,12 @@
             100% { transform: translateY(0) rotate(0deg); }
         }
 
-        /* Вращение по горизонтальной оси (общий ключевой кадр) */
+        /* Вращение по горизонтальной оси */
         @keyframes spinHorizontal {
             from { transform: rotateY(0deg); }
             to { transform: rotateY(360deg); }
         }
 
-        /* Асинхронное вращение для вопросительных знаков */
         .question-left {
             display: inline-block;
             animation: spinHorizontal 2.5s linear infinite;
@@ -201,8 +200,6 @@
             animation: spinHorizontal 4s linear infinite;
             animation-delay: 0.5s;
         }
-
-        /* Вращение планет (для DNS) */
         .planet {
             display: inline-block;
             animation: spinHorizontal 3s linear infinite;
@@ -283,7 +280,6 @@
             font-weight: normal;
         }
 
-        /* Центрирование текста под списком программ */
         .programs-footer p {
             text-align: center;
         }
@@ -344,7 +340,6 @@
             <p class="warning-footer" style="font-weight: 600; text-decoration: underline; margin:0; padding:0;">Используя приведённые ниже материалы, вы подтверждаете, что полностью осознаёте и принимаете ответственность за все свои действия.</p>
         </div>
 
-        <!-- Заголовок с вращающимися вопросительными знаками -->
         <h2>
             <span class="question-left">❓</span> КАК пользоваться <span class="question-right">❓</span>
         </h2>
@@ -443,6 +438,13 @@
         <hr>
     </div>
 
+    <!-- Flag Counter в самом низу -->
+    <div style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
+        <a href="https://info.flagcounter.com/RgTw">
+            <img src="https://s01.flagcounter.com/map/RgTw/size_s/txt_000000/border_CCCCCC/pageviews_1/viewers_0/flags_0/" alt="Flag Counter" border="0">
+        </a>
+    </div>
+
     <script>
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
@@ -487,33 +489,4 @@
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             const newColumns = Math.floor(canvas.width / fontSize);
-            if (newColumns > drops.length) {
-                for (let i = drops.length; i < newColumns; i++) {
-                    drops[i] = Math.floor(Math.random() * -canvas.height);
-                }
-            } else {
-                drops.length = newColumns;
-            }
-        });
-
-        function copyToClipboard(text) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            document.body.appendChild(textarea);
-            textarea.select();
-            try {
-                document.execCommand('copy');
-            } catch (err) {}
-            document.body.removeChild(textarea);
-        }
-
-        function copyConfig(button, url, originalText) {
-            copyToClipboard(url);
-            button.innerText = '✅ Скопировано!';
-            setTimeout(() => {
-                button.innerText = originalText;
-            }, 1000);
-        }
-    </script>
-</body>
-</html>
+            if (newColumns > drops.length) 
