@@ -30,41 +30,27 @@
             margin-bottom: 20px;
         }
         .logo-container img {
-            max-width: 90%;            /* На самых маленьких экранах занимает 90% ширины */
+            max-width: 90%;
             height: auto;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
-        /* Для небольших телефонов (до 480px) */
         @media (max-width: 480px) {
             .logo-container img {
-                max-width: 280px;       /* Фиксированный максимум, чтобы не было слишком огромно */
+                max-width: 280px;
             }
         }
-        /* Планшеты и больше */
         @media (min-width: 768px) {
             .logo-container img {
-                max-width: 350px;       /* На планшетах ещё крупнее */
+                max-width: 350px;
             }
         }
-        /* Десктоп */
         @media (min-width: 1024px) {
             .logo-container img {
-                max-width: 450px;       /* На большом экране можно сделать ещё больше */
+                max-width: 450px;
             }
         }
 
-        h1 {
-            font-size: 1.9rem;
-            color: #1e2b3a;
-            border-bottom: 3px solid #e67e22;
-            padding-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            word-break: break-word;
-        }
         h2 {
             font-size: 1.6rem;
             margin: 28px 0 16px;
@@ -153,11 +139,8 @@
             font-size: 0.9rem;
             padding: 10px 0;
         }
-        /* Мобильная адаптация для очень маленьких экранов */
+        /* Мобильная адаптация */
         @media (max-width: 480px) {
-            h1 {
-                font-size: 1.7rem;
-            }
             h2 {
                 font-size: 1.4rem;
             }
@@ -170,7 +153,6 @@
                 padding: 10px;
             }
         }
-        /* Планшеты */
         @media (min-width: 768px) {
             .container {
                 max-width: 750px;
@@ -186,7 +168,6 @@
                 font-size: 1rem;
             }
         }
-        /* Десктоп */
         @media (min-width: 1024px) {
             .container {
                 max-width: 950px;
@@ -196,14 +177,12 @@
 </head>
 <body>
 <div class="container">
-    <!-- Логотип (увеличенный) -->
+    <!-- Только логотип, без текстового заголовка -->
     <div class="logo-container">
         <img src="logo.jpg" alt="КРОТовые ТОННЕЛИ логотип">
     </div>
 
-    <h1>
-        <span>🇷🇺 КРОТовые ТОННЕЛИ</span>
-    </h1>
+    <!-- Краткое описание (можно оставить или тоже убрать) -->
     <p><strong>Бесплатный сервис для изучения сетевых технологий</strong></p>
 
     <div class="warning">
