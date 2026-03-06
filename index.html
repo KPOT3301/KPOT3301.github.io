@@ -488,4 +488,32 @@
             canvas.height = window.innerHeight;
             const newColumns = Math.floor(canvas.width / fontSize);
             if (newColumns > drops.length) {
-                for (let i = drops.length; i < newColumns; i++) 
+                for (let i = drops.length; i < newColumns; i++) {
+                    drops[i] = Math.floor(Math.random() * -canvas.height);
+                }
+            } else {
+                drops.length = newColumns;
+            }
+        });
+
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+            } catch (err) {}
+            document.body.removeChild(textarea);
+        }
+
+        function copyConfig(button, url, originalText) {
+            copyToClipboard(url);
+            button.innerText = '✅ Скопировано!';
+            setTimeout(() => {
+                button.innerText = originalText;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
