@@ -186,9 +186,14 @@
             padding-left: 24px;
             margin: 10px 0;
         }
-        li {
+        /* Стили для списка DNS (центрирование, убраны маркеры) */
+        .dns-list {
+            text-align: center;
+            list-style: none;
+            padding-left: 0;
+        }
+        .dns-list li {
             margin: 12px 0;
-            font-size: 1rem;
         }
         .app-links {
             display: inline;
@@ -349,7 +354,6 @@
             <span class="button secondary" onclick="copyConfig(this, 'https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/subscription.txt', '📡РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ📡')">📡РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ📡</span>
         </div>
 
-        <!-- Обновлённое сообщение под кнопками -->
         <p class="post-buttons-message">
             Не пользуйтесь резервным конфигом для просмотра ютуб, не подключайтесь на нем через компьютер или WiFi он только для 4G и только для работы во время шатдауна иначе вы сломаете конфиг!<br>
             ⚡️ Всем быстрых туннелей, стабильных протоколов и интернета без DPI! ⚡️
@@ -359,7 +363,8 @@
 
         <h3>🌐 Рекомендуемые DNS 🌐</h3>
         <p class="copy-hint">(нажмите для копирования)</p>
-        <ul>
+        <!-- Добавлен класс dns-list для центрирования -->
+        <ul class="dns-list">
             <li><span class="clickable-dns" onclick="copyToClipboard('1.1.1.1')">1.1.1.1</span></li>
             <li><span class="clickable-dns" onclick="copyToClipboard('8.8.8.8')">8.8.8.8</span></li>
             <li><span class="clickable-dns" onclick="copyToClipboard('8.8.4.4')">8.8.4.4</span></li>
