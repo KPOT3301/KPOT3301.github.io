@@ -51,7 +51,7 @@
         }
         @media (max-width: 480px) {
             .logo-container img {
-                max-width: 380px;
+                max-width: 320px; /* возвращено к исходному размеру */
             }
         }
         @media (min-width: 768px) {
@@ -159,15 +159,39 @@
             border: 2px solid #fff;
         }
 
-        /* Анимация для ракет (только для заголовка Конфигурации) */
-        .rocket {
+        /* Анимация для ракет, летающих вокруг заголовка */
+        .rocket-container {
             display: inline-block;
-            animation: rocketFloat 1.5s ease-in-out infinite;
+            position: relative;
+            width: 2.2rem;
+            height: 2.2rem;
+            vertical-align: middle;
+            margin: 0 5px;
         }
-        @keyframes rocketFloat {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-5px) rotate(5deg); }
-            100% { transform: translateY(0) rotate(0deg); }
+        .rocket {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-left: -0.75rem;
+            margin-top: -0.75rem;
+            animation: orbit 3s linear infinite;
+        }
+        .rocket-left .rocket {
+            animation: orbitLeft 3s linear infinite;
+        }
+        .rocket-right .rocket {
+            animation: orbitRight 3s linear infinite;
+        }
+
+        @keyframes orbitLeft {
+            0% { transform: rotate(0deg) translateX(1.2rem) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(1.2rem) rotate(-360deg); }
+        }
+        @keyframes orbitRight {
+            0% { transform: rotate(0deg) translateX(-1.2rem) rotate(0deg); }
+            100% { transform: rotate(-360deg) translateX(-1.2rem) rotate(360deg); }
         }
 
         .links {
@@ -366,9 +390,15 @@
 
         <hr>
 
-        <!-- Заголовок Конфигурации с анимированными ракетами -->
-        <h2>
-            <span class="rocket">🚀</span> Конфигурации <span class="rocket">🚀</span>
+        <!-- Заголовок Конфигурации с ракетами, летающими вокруг -->
+        <h2 style="display: flex; align-items: center; justify-content: center; gap: 5px;">
+            <span class="rocket-container rocket-left">
+                <span class="rocket">🚀</span>
+            </span>
+            Конфигурации
+            <span class="rocket-container rocket-right">
+                <span class="rocket">🚀</span>
+            </span>
         </h2>
         <p>Нажмите на кнопку, чтобы конфигурация скопировалась в буфер обмена</p>
         <div class="button-group">
@@ -383,7 +413,7 @@
 
         <hr>
 
-        <!-- Заголовок Рекомендуемые DNS с глобусами (возвращены) -->
+        <!-- Заголовок Рекомендуемые DNS с глобусами -->
         <h3>
             🌐 Рекомендуемые DNS 🌐
         </h3>
