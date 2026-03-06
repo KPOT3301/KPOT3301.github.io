@@ -24,10 +24,10 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             min-height: 100vh;
         }
-        /* Логотип — увеличенная версия */
+        /* Логотип по центру */
         .logo-container {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px; /* чуть уменьшил отступ */
         }
         .logo-container img {
             max-width: 90%;
@@ -49,6 +49,16 @@
             .logo-container img {
                 max-width: 450px;
             }
+        }
+
+        /* Центрирование текста под логотипом */
+        .subtitle {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e2b3a;
+            margin: 0 0 20px 0; /* убрал лишние отступы сверху, снизу оставил */
+            padding: 0;
         }
 
         h2 {
@@ -152,6 +162,9 @@
                 font-size: 0.75rem;
                 padding: 10px;
             }
+            .subtitle {
+                font-size: 1.3rem;
+            }
         }
         @media (min-width: 768px) {
             .container {
@@ -177,13 +190,15 @@
 </head>
 <body>
 <div class="container">
-    <!-- Только логотип, без текстового заголовка -->
+    <!-- Логотип по центру -->
     <div class="logo-container">
         <img src="logo.jpg" alt="КРОТовые ТОННЕЛИ логотип">
     </div>
 
-    <!-- Краткое описание (можно оставить или тоже убрать) -->
-    <p><strong>Бесплатный сервис для изучения сетевых технологий</strong></p>
+    <!-- Текст ровно по центру под картинкой -->
+    <div class="subtitle">
+        <strong>Бесплатный сервис для изучения сетевых технологий</strong>
+    </div>
 
     <div class="warning">
         <strong>⚠️ Важно:</strong> Проект не является средством обхода ограничений, не предназначен для доступа к запрещённым сайтам. Все материалы носят образовательный характер. Используя материалы ниже, вы соглашаетесь с условиями.
