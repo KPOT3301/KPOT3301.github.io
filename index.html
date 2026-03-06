@@ -71,8 +71,13 @@
             margin-bottom: 20px;
         }
 
-        /* Центрирование для заголовков и подсказки */
+        /* Центрирование для заголовков и подсказок */
         h2, h3, .copy-hint {
+            text-align: center;
+        }
+
+        /* Центрирование параграфа, следующего сразу за h2 */
+        h2 + p {
             text-align: center;
         }
 
@@ -334,7 +339,8 @@
 
     <hr>
 
-    <h2>📡 Конфигурации</h2>
+    <!-- Обновлённый заголовок Конфигурации с двумя глобусами -->
+    <h2>🌐 Конфигурации 🌐</h2>
     <p>Нажмите на кнопку, чтобы перейти к конфигу (ссылка откроется в браузере):</p>
     <div class="button-group">
         <a href="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-black/refs/heads/main/Molestunnels_base64.txt" class="button" target="_blank">🇷🇺 Основной туннель</a>
@@ -343,7 +349,8 @@
 
     <hr>
 
-    <h3>🌐 Рекомендуемые DNS</h3>
+    <!-- Обновлённый заголовок DNS с двумя глобусами -->
+    <h3>🌐 Рекомендуемые DNS 🌐</h3>
     <p class="copy-hint">(нажмите для копирования)</p>
     <ul>
         <li><span class="clickable-dns" onclick="copyToClipboard('1.1.1.1')">1.1.1.1</span></li>
