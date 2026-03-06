@@ -51,9 +51,9 @@
             }
         }
 
-        /* Общий градиентный стиль для текста */
-        .gradient-text {
-            background: linear-gradient(135deg, #e67e22, #f1c40f);
+        /* Градиент в цветах флага России (синий, белый, красный) */
+        .russian-flag {
+            background: linear-gradient(to right, #0039A6, #FFFFFF, #D52B1E);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -61,22 +61,18 @@
             letter-spacing: 1px;
         }
 
-        /* Основная надпись (бесплатный сервис) */
-        .main-title {
+        /* Общие стили для обеих надписей */
+        .main-title, .sub-message {
             text-align: center;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             margin: 0 0 5px 0;
             padding: 0;
         }
-        /* Дополнительная надпись (про ИИ и мошенников) */
+        /* Вторая надпись подчёркнута */
         .sub-message {
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin: 0 0 20px 0;
-            padding: 0;
-            opacity: 0.9;
+            text-decoration: underline;
+            margin-bottom: 20px;
         }
 
         h2 {
@@ -180,11 +176,8 @@
                 font-size: 0.75rem;
                 padding: 10px;
             }
-            .main-title {
-                font-size: 1.5rem;
-            }
-            .sub-message {
-                font-size: 1rem;
+            .main-title, .sub-message {
+                font-size: 1.3rem;
             }
         }
         @media (min-width: 768px) {
@@ -217,12 +210,12 @@
     </div>
 
     <!-- Первая надпись (бесплатный сервис) -->
-    <div class="main-title gradient-text">
+    <div class="main-title russian-flag">
         <strong>Бесплатный сервис для изучения сетевых технологий</strong>
     </div>
 
-    <!-- Вторая надпись (про ИИ и мошенников) -->
-    <div class="sub-message gradient-text">
+    <!-- Вторая надпись (про ИИ и мошенников) подчёркнутая -->
+    <div class="sub-message russian-flag">
         <strong>Данный сервис создан ИИ ботами под влиянием мошенников!</strong>
     </div>
 
