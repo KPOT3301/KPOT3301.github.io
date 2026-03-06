@@ -32,7 +32,7 @@
         }
         .container {
             max-width: 100%;
-            background: rgba(0, 0, 0, 0.6); /* возвращено исходное значение */
+            background: rgba(0, 0, 0, 0.6);
             padding: 20px 16px;
             margin: 0 auto;
             min-height: 100vh;
@@ -204,9 +204,10 @@
             margin: 0 4px;
             color: #aaa;
         }
+        /* Новый класс для сообщения после кнопок */
         .message-after-buttons {
             text-align: center;
-            margin: 20px 0;
+            margin: 20px 0;  /* такой же вертикальный отступ, как у других блоков */
         }
         .footer {
             text-align: center;
@@ -352,6 +353,7 @@
             <a href="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/Molestunnels_base64.txt" class="button secondary" target="_blank">📡 Резервный (при глушении)</a>
         </div>
 
+        <!-- Сообщение перенесено сюда, стилизовано как текст-инструкция -->
         <p class="message-after-buttons">⚡️ Всем быстрых туннелей, стабильных протоколов и интернета без DPI! ⚡️</p>
 
         <hr>
@@ -373,6 +375,7 @@
 
         <hr>
 
+        <!-- Футер удалён, так как его содержимое перемещено выше -->
     </div>
 
     <script>
@@ -392,13 +395,11 @@
         }
 
         function drawMatrix() {
-            // Возвращён альфа-канал 0.08 (исходный)
             ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             ctx.fillStyle = '#0f0';
             ctx.font = fontSize + 'px monospace';
-            // Возвращено размытие тени 8px
             ctx.shadowColor = '#0f0';
             ctx.shadowBlur = 8;
             ctx.shadowOffsetX = 0;
