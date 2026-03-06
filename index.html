@@ -305,7 +305,7 @@
     </div>
 </div>
 
-<!-- Скрипт для копирования в буфер обмена -->
+<!-- Скрипт для копирования в буфер обмена без уведомлений -->
 <script>
 function copyToClipboard(text) {
     const textarea = document.createElement('textarea');
@@ -314,9 +314,10 @@ function copyToClipboard(text) {
     textarea.select();
     try {
         document.execCommand('copy');
-        alert('Скопировано: ' + text);
+        // Молча копируем, без alert
     } catch (err) {
-        alert('Не удалось скопировать');
+        // При ошибке тоже ничего не показываем (можно раскомментировать, если нужно)
+        // alert('Не удалось скопировать');
     }
     document.body.removeChild(textarea);
 }
