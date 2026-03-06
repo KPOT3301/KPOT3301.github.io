@@ -159,7 +159,7 @@
             border: 2px solid #fff;
         }
 
-        /* Анимации для ракет: полностью асинхронные */
+        /* Асинхронные анимации ракет */
         .rocket-left {
             display: inline-block;
             animation: rocketFlyLeft 2s ease-in-out infinite;
@@ -184,14 +184,15 @@
             100% { transform: translateY(0) rotate(0deg); }
         }
 
-        /* Анимация вращения для планет */
+        /* Вращение планет по вертикальной оси (3D) */
         .planet {
             display: inline-block;
-            animation: spin 4s linear infinite;
+            animation: spinVertical 3s linear infinite;
+            transform-style: preserve-3d;
         }
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        @keyframes spinVertical {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
         }
 
         .links {
@@ -390,7 +391,6 @@
 
         <hr>
 
-        <!-- Заголовок Конфигурации с асинхронными ракетами -->
         <h2>
             <span class="rocket-left">🚀</span> Конфигурации <span class="rocket-right">🚀</span>
         </h2>
@@ -407,7 +407,7 @@
 
         <hr>
 
-        <!-- Заголовок Рекомендуемые DNS с вращающимися планетами -->
+        <!-- Заголовок Рекомендуемые DNS с вращением по вертикали -->
         <h3>
             <span class="planet">🌐</span> Рекомендуемые DNS <span class="planet">🌐</span>
         </h3>
