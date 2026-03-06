@@ -343,11 +343,11 @@
         <hr>
 
         <h2>🌐 Конфигурации 🌐</h2>
-        <!-- Изменённый текст инструкции -->
         <p>Нажмите на кнопку, чтобы перейти к конфигурация скопировалась в буфер обмена</p>
         <div class="button-group">
             <span class="button" onclick="copyConfig(this, 'https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-black/refs/heads/main/Molestunnels_base64.txt', '🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺')">🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺</span>
-            <span class="button secondary" onclick="copyConfig(this, 'https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/Molestunnels_base64.txt', '📡 Резервный (при глушении)')">📡 Резервный (при глушении)</span>
+            <!-- Изменённый текст второй кнопки -->
+            <span class="button secondary" onclick="copyConfig(this, 'https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/Molestunnels_base64.txt', '📡РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ📡')">📡РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ📡</span>
         </div>
 
         <p class="post-buttons-message">⚡️ Всем быстрых туннелей, стабильных протоколов и интернета без DPI! ⚡️</p>
@@ -436,10 +436,8 @@
             document.body.removeChild(textarea);
         }
 
-        // Функция для копирования конфига с обратной связью на кнопке
         function copyConfig(button, url, originalText) {
             copyToClipboard(url);
-            // Меняем текст кнопки на "Скопировано!" на 1 секунду
             button.innerText = '✅ Скопировано!';
             setTimeout(() => {
                 button.innerText = originalText;
