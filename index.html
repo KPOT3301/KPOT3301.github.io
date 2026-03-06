@@ -51,7 +51,7 @@
         }
         @media (max-width: 480px) {
             .logo-container img {
-                max-width: 320px; /* увеличено с 280px */
+                max-width: 320px;
             }
         }
         @media (min-width: 768px) {
@@ -60,7 +60,7 @@
                 padding: 30px;
             }
             .logo-container img {
-                max-width: 400px; /* увеличено с 350px */
+                max-width: 400px;
             }
         }
         @media (min-width: 1024px) {
@@ -68,7 +68,7 @@
                 max-width: 950px;
             }
             .logo-container img {
-                max-width: 500px; /* увеличено с 450px */
+                max-width: 500px;
             }
         }
 
@@ -158,8 +158,17 @@
         .button.secondary:hover {
             border: 2px solid #fff;
         }
-        
-        /* Анимация buttonFlash удалена */
+
+        /* Анимация для ракет */
+        .rocket {
+            display: inline-block;
+            animation: rocketFloat 1.5s ease-in-out infinite;
+        }
+        @keyframes rocketFloat {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
 
         .links {
             background: #1e2a3a;
@@ -269,7 +278,6 @@
             <img src="logo.jpg" alt="КРОТовые ТОННЕЛИ логотип">
         </div>
 
-        <!-- Надписи под логотипом: поменяны местами -->
         <div class="sub-message red-text">
             <strong>Данный сервис создан ИИ ботами под влиянием мошенников!</strong>
         </div>
@@ -351,7 +359,6 @@
             </li>
         </ul>
 
-        <!-- Текст под списком программ центрирован -->
         <div class="programs-footer">
             <p><em>Рекомендую: Happ для телефона, Hiddify для ПК.</em></p>
             <p>Скачиваем клиент-приложение из указанных выше. Далее в приложении нажимаем «Вставить подписку из буфера обмена». Пингуем сервера и выбираем быстрый. и не забываем настраивать раздельное туннелирование приложений.</p>
@@ -359,7 +366,10 @@
 
         <hr>
 
-        <h2>🌐 Конфигурации 🌐</h2>
+        <!-- Заголовок с анимированными ракетами -->
+        <h2>
+            <span class="rocket">🚀</span> Конфигурации <span class="rocket">🚀</span>
+        </h2>
         <p>Нажмите на кнопку, чтобы конфигурация скопировалась в буфер обмена</p>
         <div class="button-group">
             <span class="button" onclick="copyConfig(this, 'https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-black/refs/heads/main/subscription.txt', '🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺')">🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺</span>
@@ -373,7 +383,10 @@
 
         <hr>
 
-        <h3>🌐 Рекомендуемые DNS 🌐</h3>
+        <!-- Заголовок DNS с анимированными ракетами -->
+        <h3>
+            <span class="rocket">🚀</span> Рекомендуемые DNS <span class="rocket">🚀</span>
+        </h3>
         <p class="copy-hint">(нажмите для копирования)</p>
         <ul class="dns-list">
             <li><span class="clickable-dns" onclick="copyToClipboard('1.1.1.1')">1.1.1.1</span></li>
