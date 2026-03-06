@@ -16,29 +16,30 @@
             color: #f1f1f1;
             margin: 0;
             padding: 0;
-            background: #000;
+            background: #000; /* подложка под canvas */
             overflow-x: hidden;
             position: relative;
             min-height: 100vh;
         }
+        /* Canvas для матрицы */
         #matrix-canvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
-            pointer-events: none;
+            z-index: -1; /* позади всего контента */
+            pointer-events: none; /* чтобы не мешать кликам */
         }
         .container {
             max-width: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.7); /* полупрозрачный чёрный для читаемости */
             padding: 20px 16px;
             margin: 0 auto;
             min-height: 100vh;
             position: relative;
             z-index: 1;
-            backdrop-filter: blur(1px);
+            backdrop-filter: blur(1px); /* лёгкое размытие фона для усиления эффекта */
         }
         .logo-container {
             text-align: center;
@@ -48,7 +49,7 @@
             max-width: 90%;
             height: auto;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.5);
+            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3); /* зелёное свечение под логотип */
         }
         @media (max-width: 480px) {
             .logo-container img {
@@ -143,7 +144,7 @@
             transition: background 0.2s, transform 0.1s;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 255, 0, 0.4);
+            box-shadow: 0 4px 6px rgba(0, 255, 0, 0.3);
         }
         .button:active {
             transform: scale(0.98);
@@ -203,11 +204,6 @@
         .app-links .separator {
             margin: 0 4px;
             color: #aaa;
-        }
-        /* Новый класс для сообщения после кнопок */
-        .message-after-buttons {
-            text-align: center;
-            margin: 20px 0;  /* такой же вертикальный отступ, как у других блоков */
         }
         .footer {
             text-align: center;
@@ -353,9 +349,6 @@
             <a href="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/Molestunnels_base64.txt" class="button secondary" target="_blank">📡 Резервный (при глушении)</a>
         </div>
 
-        <!-- Сообщение перенесено сюда, стилизовано как текст-инструкция -->
-        <p class="message-after-buttons">⚡️ Всем быстрых туннелей, стабильных протоколов и интернета без DPI! ⚡️</p>
-
         <hr>
 
         <h3>🌐 Рекомендуемые DNS 🌐</h3>
@@ -375,57 +368,72 @@
 
         <hr>
 
-        <!-- Футер удалён, так как его содержимое перемещено выше -->
+        <div class="footer">
+            <p>⚡️ Всем быстрых туннелей, стабильных протоколов и интернета без DPI! ⚡️</p>
+        </div>
     </div>
 
     <script>
+        // Матрица (зелёный дождь) на Canvas
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
 
+        // Устанавливаем размер canvas равным размеру окна
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
+        // Символы для матрицы (можно добавить японские или латинские)
         const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+[]{}|;:,.<>?/\\~`';
+
+        // Размер ячейки (ширина символа)
         const fontSize = 16;
+        // Количество колонок
         const columns = Math.floor(canvas.width / fontSize);
 
+        // Массив для хранения текущей позиции каждой колонки
         const drops = [];
         for (let i = 0; i < columns; i++) {
-            drops[i] = Math.floor(Math.random() * -canvas.height);
+            drops[i] = Math.floor(Math.random() * -canvas.height); // стартуем с разных высот
         }
 
         function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+            // Полупрозрачный чёрный фон, чтобы создавать эффект затухания
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = '#0f0';
+            // Зелёный цвет
+            ctx.fillStyle = '#0f0'; // ярко-зелёный
             ctx.font = fontSize + 'px monospace';
-            ctx.shadowColor = '#0f0';
-            ctx.shadowBlur = 8;
-            ctx.shadowOffsetX = 0;
-            ctx.shadowOffsetY = 0;
 
             for (let i = 0; i < drops.length; i++) {
+                // Случайный символ
                 const text = chars[Math.floor(Math.random() * chars.length)];
+                // Координаты
                 const x = i * fontSize;
                 const y = drops[i] * fontSize;
 
+                // Рисуем символ
                 ctx.fillText(text, x, y);
 
+                // Сбрасываем позицию, если ушли за пределы или случайно
                 if (y > canvas.height && Math.random() > 0.975) {
                     drops[i] = 0;
                 }
-                drops[i] += 0.6;
+                // Сдвигаем вниз
+                drops[i] += 0.5; // скорость падения
             }
             requestAnimationFrame(drawMatrix);
         }
 
         drawMatrix();
 
+        // Обновляем размер canvas при изменении размера окна
         window.addEventListener('resize', () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+            // Пересчитываем количество колонок
             const newColumns = Math.floor(canvas.width / fontSize);
+            // Корректируем массив drops
             if (newColumns > drops.length) {
                 for (let i = drops.length; i < newColumns; i++) {
                     drops[i] = Math.floor(Math.random() * -canvas.height);
@@ -435,6 +443,7 @@
             }
         });
 
+        // Функция копирования (без изменений)
         function copyToClipboard(text) {
             const textarea = document.createElement('textarea');
             textarea.value = text;
