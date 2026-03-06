@@ -16,7 +16,7 @@
             color: #f1f1f1;
             margin: 0;
             padding: 0;
-            background: #000;
+            background: #000; /* чисто чёрный фон */
             overflow-x: hidden;
             position: relative;
             min-height: 100vh;
@@ -32,7 +32,7 @@
         }
         .container {
             max-width: 100%;
-            background: rgba(0, 0, 0, 0.6); /* немного светлее для контраста */
+            background: rgba(0, 0, 0, 0.5); /* чуть светлее, чтобы матрица просвечивала лучше */
             padding: 20px 16px;
             margin: 0 auto;
             min-height: 100vh;
@@ -48,7 +48,7 @@
             max-width: 90%;
             height: auto;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.5); /* усилено зелёное свечение */
+            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.5);
         }
         @media (max-width: 480px) {
             .logo-container img {
@@ -143,7 +143,7 @@
             transition: background 0.2s, transform 0.1s;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 255, 0, 0.4); /* усилено свечение */
+            box-shadow: 0 4px 6px rgba(0, 255, 0, 0.4);
         }
         .button:active {
             transform: scale(0.98);
@@ -203,6 +203,10 @@
         .app-links .separator {
             margin: 0 4px;
             color: #aaa;
+        }
+        .message-after-buttons {
+            text-align: center;
+            margin: 20px 0;
         }
         .footer {
             text-align: center;
@@ -348,6 +352,8 @@
             <a href="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/Molestunnels_base64.txt" class="button secondary" target="_blank">📡 Резервный (при глушении)</a>
         </div>
 
+        <p class="message-after-buttons">⚡️ Всем быстрых туннелей, стабильных протоколов и интернета без DPI! ⚡️</p>
+
         <hr>
 
         <h3>🌐 Рекомендуемые DNS 🌐</h3>
@@ -367,9 +373,6 @@
 
         <hr>
 
-        <div class="footer">
-            <p>⚡️ Всем быстрых туннелей, стабильных протоколов и интернета без DPI! ⚡️</p>
-        </div>
     </div>
 
     <script>
@@ -389,16 +392,14 @@
         }
 
         function drawMatrix() {
-            // Увеличили альфа-канал для более яркого эффекта (было 0.05)
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+            // Уменьшаем альфа-канал для более медленного затухания (символы остаются ярче дольше)
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; // было 0.08
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Используем ярко-зелёный цвет с небольшим свечением (имитируем через text)
             ctx.fillStyle = '#0f0'; // максимально яркий зелёный
             ctx.font = fontSize + 'px monospace';
-            // Добавляем тень для свечения (работает не во всех браузерах, но улучшит видимость)
             ctx.shadowColor = '#0f0';
-            ctx.shadowBlur = 8;
+            ctx.shadowBlur = 10; // увеличили свечение
             ctx.shadowOffsetX = 0;
             ctx.shadowOffsetY = 0;
 
@@ -412,7 +413,7 @@
                 if (y > canvas.height && Math.random() > 0.975) {
                     drops[i] = 0;
                 }
-                drops[i] += 0.6; // скорость падения чуть увеличена для большей динамики
+                drops[i] += 0.6; // скорость падения
             }
             requestAnimationFrame(drawMatrix);
         }
