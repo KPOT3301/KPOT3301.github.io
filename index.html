@@ -131,7 +131,7 @@
         }
         .button {
             display: block;
-            background: #e67e22;
+            background: transparent;        /* полностью прозрачный фон */
             color: white;
             text-decoration: none;
             padding: 16px 20px;
@@ -139,20 +139,24 @@
             font-weight: 600;
             font-size: 1.1rem;
             text-align: center;
-            transition: background 0.2s, transform 0.1s;
-            border: none;
+            transition: border 0.2s, transform 0.1s;
+            border: 2px dashed #fff;        /* белая пунктирная рамка */
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 255, 0, 0.3);
+            box-shadow: none;                /* убрали свечение */
+        }
+        .button:hover {
+            border: 2px solid #fff;          /* при наведении рамка становится сплошной */
         }
         .button:active {
             transform: scale(0.98);
-            background: #d35400;
         }
+        /* Вторичная кнопка (Резервный) теперь имеет такой же стиль, без отдельного цвета */
         .button.secondary {
-            background: #4a6fa5;
+            background: transparent;
+            border: 2px dashed #fff;
         }
-        .button.secondary:active {
-            background: #3b5a8c;
+        .button.secondary:hover {
+            border: 2px solid #fff;
         }
         .links {
             background: #1e2a3a;
@@ -400,7 +404,7 @@
                 if (y > canvas.height && Math.random() > 0.975) {
                     drops[i] = 0;
                 }
-                drops[i] += 0.3; // скорость уменьшена для более медленного падения
+                drops[i] += 0.3;
             }
             requestAnimationFrame(drawMatrix);
         }
