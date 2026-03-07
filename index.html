@@ -159,6 +159,14 @@
             border: 2px solid #fff;
         }
 
+        /* Стиль для статистики внутри кнопок (меньший шрифт) */
+        .button-stats {
+            font-size: 0.75rem;
+            display: block;
+            margin-top: 4px;
+            opacity: 0.9;
+        }
+
         /* Асинхронные анимации ракет (только для заголовка Конфигурации) */
         .rocket-left {
             display: inline-block;
@@ -535,10 +543,10 @@
                             } else {
                                 announceText = 'Статистика не найдена';
                             }
-                            button.innerHTML = title + '<br>' + announceText;
+                            button.innerHTML = title + '<br><span class="button-stats">' + announceText + '</span>';
                         })
                         .catch(() => {
-                            button.innerHTML = title + '<br>Ошибка загрузки';
+                            button.innerHTML = title + '<br><span class="button-stats">Ошибка загрузки</span>';
                         });
                 }
             });
