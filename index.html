@@ -129,11 +129,6 @@
             gap: 12px;
             margin: 20px 0;
         }
-        .button-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-        }
         .button {
             display: block;
             background: transparent;
@@ -162,15 +157,6 @@
         }
         .button.secondary:hover {
             border: 2px solid #fff;
-        }
-
-        .announce {
-            font-size: 0.8rem;
-            color: #aaa;
-            text-align: center;
-            margin-top: 4px;
-            margin-bottom: 8px;
-            word-break: break-word;
         }
 
         /* Асинхронные анимации ракет (только для заголовка Конфигурации) */
@@ -426,14 +412,8 @@
         </h2>
         <p>Нажмите на кнопку, чтобы конфигурация скопировалась в буфер обмена</p>
         <div class="button-group">
-            <div class="button-wrapper">
-                <span class="button" onclick="copyConfig(this, 'https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-black/refs/heads/main/subscription.txt', '🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺')">🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺</span>
-                <div class="announce" data-url="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-black/refs/heads/main/subscription.txt">Загрузка...</div>
-            </div>
-            <div class="button-wrapper">
-                <span class="button secondary" onclick="copyConfig(this, 'https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/subscription.txt', '📡РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ📡')">📡РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ📡</span>
-                <div class="announce" data-url="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/subscription.txt">Загрузка...</div>
-            </div>
+            <span class="button" data-url="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-black/refs/heads/main/subscription.txt" data-title="🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺" onclick="copyConfig(this)">🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺</span>
+            <span class="button secondary" data-url="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/subscription.txt" data-title="📡РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ📡" onclick="copyConfig(this)">📡РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ📡</span>
         </div>
 
         <p class="post-buttons-message">
@@ -527,34 +507,38 @@
             document.body.removeChild(textarea);
         }
 
-        function copyConfig(button, url, originalText) {
+        function copyConfig(button) {
+            const url = button.dataset.url;
+            if (!url) return;
+            const originalHTML = button.innerHTML;
             copyToClipboard(url);
-            button.innerText = '✅ Скопировано!';
+            button.innerHTML = '✅ Скопировано!';
             setTimeout(() => {
-                button.innerText = originalText;
+                button.innerHTML = originalHTML;
             }, 1000);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            const announceElements = document.querySelectorAll('.announce');
-            announceElements.forEach(el => {
-                const url = el.dataset.url;
-                if (url) {
+            const buttons = document.querySelectorAll('.button[data-url]');
+            buttons.forEach(button => {
+                const url = button.dataset.url;
+                const title = button.dataset.title;
+                if (url && title) {
                     fetch(url)
                         .then(response => response.text())
                         .then(text => {
                             const lines = text.split('\n');
                             const announceLine = lines.find(line => line.trim().startsWith('#announce'));
+                            let announceText = '';
                             if (announceLine) {
-                                // Удаляем "#announce" и возможное двоеточие/пробелы
-                                let content = announceLine.replace(/^#announce\s*:?\s*/i, '').trim();
-                                el.textContent = content;
+                                announceText = announceLine.replace(/^#announce\s*:?\s*/i, '').trim();
                             } else {
-                                el.textContent = 'Нет данных';
+                                announceText = 'Статистика не найдена';
                             }
+                            button.innerHTML = title + '<br>' + announceText;
                         })
                         .catch(() => {
-                            el.textContent = 'Ошибка загрузки';
+                            button.innerHTML = title + '<br>Ошибка загрузки';
                         });
                 }
             });
