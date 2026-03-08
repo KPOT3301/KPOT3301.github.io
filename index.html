@@ -296,6 +296,26 @@
             text-align: center;
         }
 
+        /* Стили для видео-оверлея */
+        #video-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        #connect-video {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+        }
+
         @media (max-width: 480px) {
             h2 {
                 font-size: 1.4rem;
@@ -463,107 +483,15 @@
         <hr>
     </div>
 
+    <!-- Оверлей для видео -->
+    <div id="video-overlay" onclick="hideVideo()">
+        <video id="connect-video" src="conect.mp4" playsinline></video>
+    </div>
+
     <script>
+        // Матричный фон (исправленная версия)
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
 
         canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+[]{}|;:,.<>?/\\~`';
-        const fontSize = 16;
-        const columns = Math.floor(canvas.width / fontSize);
-
-        const drops = [];
-        for (let i = 0; i < columns; i++) {
-            drops[i] = Math.floor(Math.random() * -canvas.height);
-        }
-
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = '#0f0';
-            ctx.font = fontSize + 'px monospace';
-
-            for (let i = 0; i < drops.length; i++) {
-                const text = chars[Math.floor(Math.random() * chars.length)];
-                const x = i * fontSize;
-                const y = drops[i] * fontSize;
-
-                ctx.fillText(text, x, y);
-
-                if (y > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i] += 0.3;
-            }
-            requestAnimationFrame(drawMatrix);
-        }
-
-        drawMatrix();
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            const newColumns = Math.floor(canvas.width / fontSize);
-            if (newColumns > drops.length) {
-                for (let i = drops.length; i < newColumns; i++) {
-                    drops[i] = Math.floor(Math.random() * -canvas.height);
-                }
-            } else {
-                drops.length = newColumns;
-            }
-        });
-
-        function copyToClipboard(text) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            document.body.appendChild(textarea);
-            textarea.select();
-            try {
-                document.execCommand('copy');
-            } catch (err) {}
-            document.body.removeChild(textarea);
-        }
-
-        // ИСПРАВЛЕННАЯ ФУНКЦИЯ: теперь копирует из data-copy-url
-        function copyConfig(button) {
-            const copyUrl = button.dataset.copyUrl;
-            if (!copyUrl) return;
-            const originalHTML = button.innerHTML;
-            copyToClipboard(copyUrl);
-            button.innerHTML = '✅ Скопировано!';
-            setTimeout(() => {
-                button.innerHTML = originalHTML;
-            }, 1000);
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const buttons = document.querySelectorAll('.button[data-url]');
-            buttons.forEach(button => {
-                const url = button.dataset.url;
-                const title = button.dataset.title;
-                if (url && title) {
-                    fetch(url)
-                        .then(response => response.text())
-                        .then(text => {
-                            const lines = text.split('\n');
-                            const announceLine = lines.find(line => line.trim().startsWith('#announce'));
-                            let announceText = '';
-                            if (announceLine) {
-                                announceText = announceLine.replace(/^#announce\s*:?\s*/i, '').trim();
-                            } else {
-                                announceText = 'Статистика не найдена';
-                            }
-                            button.innerHTML = title + '<br><span class="button-stats">' + announceText + '</span>';
-                        })
-                        .catch(() => {
-                            button.innerHTML = title + '<br><span class="button-stats">Ошибка загрузки</span>';
-                        });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+  
