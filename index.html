@@ -483,9 +483,9 @@
         <hr>
     </div>
 
-    <!-- Оверлей для видео -->
+    <!-- Оверлей для видео (с атрибутами для мобильных) -->
     <div id="video-overlay" onclick="hideVideo()">
-        <video id="connect-video" src="conect.mp4" playsinline></video>
+        <video id="connect-video" src="conect.mp4" playsinline muted></video>
     </div>
 
     <script>
@@ -493,5 +493,5 @@
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
 
-        canvas.width = window.innerWidth;
+        c
   
