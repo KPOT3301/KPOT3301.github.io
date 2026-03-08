@@ -420,8 +420,20 @@
         </h2>
         <p>Нажмите на кнопку, чтобы конфигурация скопировалась в буфер обмена</p>
         <div class="button-group">
-            <span class="button" data-url="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-black/refs/heads/main/subscription_base64.txt" data-title="🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺" onclick="copyConfig(this)">🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺</span>
-            <span class="button secondary" data-url="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/subscription_base64.txt" data-title="📡РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ📡" onclick="copyConfig(this)">📡РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ📡</span>
+            <span class="button" 
+                  data-url="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-black/refs/heads/main/subscription.txt" 
+                  data-copy-url="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-black/refs/heads/main/subscription_base64.txt" 
+                  data-title="🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺" 
+                  onclick="copyConfig(this)">
+                🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺
+            </span>
+            <span class="button secondary" 
+                  data-url="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/subscription.txt" 
+                  data-copy-url="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/subscription_base64.txt" 
+                  data-title="📡РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ📡" 
+                  onclick="copyConfig(this)">
+                📡РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ📡
+            </span>
         </div>
 
         <p class="post-buttons-message">
@@ -515,11 +527,12 @@
             document.body.removeChild(textarea);
         }
 
+        // ИСПРАВЛЕННАЯ ФУНКЦИЯ: теперь копирует из data-copy-url
         function copyConfig(button) {
-            const url = button.dataset.url;
-            if (!url) return;
+            const copyUrl = button.dataset.copyUrl;
+            if (!copyUrl) return;
             const originalHTML = button.innerHTML;
-            copyToClipboard(url);
+            copyToClipboard(copyUrl);
             button.innerHTML = '✅ Скопировано!';
             setTimeout(() => {
                 button.innerHTML = originalHTML;
