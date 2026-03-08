@@ -51,7 +51,7 @@
             box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
             display: block;
             margin: 0 auto;
-            object-fit: contain; /* чтобы видео вписывалось без обрезания */
+            object-fit: contain;
         }
         @media (max-width: 480px) {
             .logo-container video {
@@ -80,8 +80,11 @@
             color: #f1f1f1;
             letter-spacing: 1px;
         }
+
+        /* ИЗМЕНЁННЫЙ СТИЛЬ: кислотно-зелёный светящийся */
         .red-text {
-            color: #ff6b6b;
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
             letter-spacing: 1px;
         }
 
@@ -324,7 +327,6 @@
 <body>
     <canvas id="matrix-canvas"></canvas>
     <div class="container">
-        <!-- Замена logo.jpg на видео conect.mp4 -->
         <div class="logo-container">
             <video autoplay loop muted playsinline class="logo-video">
                 <source src="conect.mp4" type="video/mp4">
@@ -332,6 +334,7 @@
             </video>
         </div>
 
+        <!-- Здесь применяется изменённый класс .red-text -->
         <div class="sub-message red-text">
             <strong>Данный сервис создан ИИ ботами под влиянием мошенников!</strong>
         </div>
@@ -535,7 +538,6 @@
             document.body.removeChild(textarea);
         }
 
-        // ИСПРАВЛЕННАЯ ФУНКЦИЯ: теперь копирует из data-copy-url
         function copyConfig(button) {
             const copyUrl = button.dataset.copyUrl;
             if (!copyUrl) return;
