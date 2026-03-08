@@ -43,7 +43,7 @@
             text-align: center;
             margin-bottom: 10px;
         }
-        /* Стили для видео (ранее применялись к img) */
+        /* Стили для видео */
         .logo-container video {
             max-width: 90%;
             height: auto;
@@ -81,10 +81,10 @@
             letter-spacing: 1px;
         }
 
-        /* ИЗМЕНЁННЫЙ СТИЛЬ: кислотно-зелёный светящийся */
+        /* Уменьшенная яркость кислотно-зелёного свечения */
         .red-text {
-            color: #00ff00;
-            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+            color: #00cc00;
+            text-shadow: 0 0 3px #00cc00, 0 0 6px #00cc00;
             letter-spacing: 1px;
         }
 
@@ -328,13 +328,12 @@
     <canvas id="matrix-canvas"></canvas>
     <div class="container">
         <div class="logo-container">
-            <video autoplay loop muted playsinline class="logo-video">
+            <video autoplay loop muted playsinline>
                 <source src="conect.mp4" type="video/mp4">
                 Ваш браузер не поддерживает видео.
             </video>
         </div>
 
-        <!-- Здесь применяется изменённый класс .red-text -->
         <div class="sub-message red-text">
             <strong>Данный сервис создан ИИ ботами под влиянием мошенников!</strong>
         </div>
@@ -363,7 +362,6 @@
             <p class="warning-footer" style="font-weight: 600; text-decoration: underline; margin:0; padding:0;">Используя приведённые ниже материалы, вы подтверждаете, что полностью осознаёте и принимаете ответственность за все свои действия.</p>
         </div>
 
-        <!-- Заголовок с вращающимися вопросительными знаками -->
         <h2>
             <span class="question-left">❓</span> КАК пользоваться <span class="question-right">❓</span>
         </h2>
