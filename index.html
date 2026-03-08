@@ -81,10 +81,10 @@
             letter-spacing: 1px;
         }
 
-        /* Более четкое кислотно-зеленое свечение (уменьшено размытие) */
+        /* Более четкое кислотно-зеленое свечение */
         .red-text {
             color: #00cc00;
-            text-shadow: 0 0 1px #00cc00; /* минимальное размытие для четкости */
+            text-shadow: 0 0 1px #00cc00;
             letter-spacing: 1px;
         }
 
@@ -120,7 +120,8 @@
         }
         .warning {
             background: transparent;
-            border-left: 5px solid #e67e22;
+            border-left: 5px solid #ff0000;    /* ярко-красный слева */
+            border-right: 5px solid #ff0000;   /* ярко-красный справа */
             padding: 14px 16px;
             margin: 20px 0;
             border-radius: 8px;
@@ -341,6 +342,7 @@
             <strong>Бесплатный сервис для изучения сетевых технологий</strong>
         </div>
 
+        <!-- Блок warning с двумя красными полосами по бокам -->
         <div class="warning">
             <strong>⚠️ Важно:</strong><br>
             Проект не является средством обхода ограничений, не предназначен для доступа к запрещённым сайтам, ресурсам или контенту, включённым в реестр Роскомнадзора.<br><br>
