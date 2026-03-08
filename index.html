@@ -43,14 +43,18 @@
             text-align: center;
             margin-bottom: 10px;
         }
-        .logo-container img {
+        /* Стили для видео (ранее применялись к img) */
+        .logo-container video {
             max-width: 90%;
             height: auto;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
+            display: block;
+            margin: 0 auto;
+            object-fit: contain; /* чтобы видео вписывалось без обрезания */
         }
         @media (max-width: 480px) {
-            .logo-container img {
+            .logo-container video {
                 max-width: 350px;
             }
         }
@@ -59,7 +63,7 @@
                 max-width: 750px;
                 padding: 30px;
             }
-            .logo-container img {
+            .logo-container video {
                 max-width: 550px;
             }
         }
@@ -67,7 +71,7 @@
             .container {
                 max-width: 950px;
             }
-            .logo-container img {
+            .logo-container video {
                 max-width: 700px;
             }
         }
@@ -188,7 +192,7 @@
             0% { transform: translateY(0) rotate(0deg); }
             25% { transform: translateY(-5px) rotate(10deg); }
             50% { transform: translateY(0) rotate(0deg); }
-            75% { transform: translateY(8px) rotate(-20deg); }
+            70% { transform: translateY(8px) rotate(-20deg); }
             100% { transform: translateY(0) rotate(0deg); }
         }
 
@@ -320,8 +324,12 @@
 <body>
     <canvas id="matrix-canvas"></canvas>
     <div class="container">
+        <!-- Замена logo.jpg на видео conect.mp4 -->
         <div class="logo-container">
-            <img src="logo.jpg" alt="КРОТовые ТОННЕЛИ логотип">
+            <video autoplay loop muted playsinline class="logo-video">
+                <source src="conect.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
         </div>
 
         <div class="sub-message red-text">
