@@ -446,6 +446,7 @@
                   data-title="🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺" 
                   onclick="copyConfig(this)">
                 🇷🇺 ОСНОВНОЙ ТОННЕЛЬ 🇷🇺
+                <span class="button-stats">Загрузка...</span>
             </span>
             <span class="button secondary" 
                   data-url="https://raw.githubusercontent.com/KPOT3301/Molles-tonnels-white/refs/heads/main/subscription.txt" 
@@ -453,6 +454,7 @@
                   data-title="📡РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ📡" 
                   onclick="copyConfig(this)">
                 📡РЕЗЕРВНЫЙ для обхода БЕЛЫХ СПИСКОВ📡
+                <span class="button-stats">Загрузка...</span>
             </span>
         </div>
 
@@ -483,15 +485,12 @@
         <hr>
     </div>
 
-    <!-- Оверлей для видео (с атрибутами для мобильных) -->
+    <!-- Оверлей для видео -->
     <div id="video-overlay" onclick="hideVideo()">
         <video id="connect-video" src="conect.mp4" playsinline muted></video>
     </div>
 
     <script>
-        // Матричный фон (исправленная версия)
-        const canvas = document.getElementById('matrix-canvas');
-        const ctx = canvas.getContext('2d');
-
-        c
+        // Матричный фон
+        const canvas = document.getElementById(
   
