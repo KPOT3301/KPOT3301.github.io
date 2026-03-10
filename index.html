@@ -281,6 +281,22 @@
         }
         .dns-list li {
             margin: 12px 0;
+            font-size: 1rem;
+        }
+        .dns-list li span {
+            cursor: pointer;
+            transition: color 0.2s;
+            display: inline-block;
+        }
+        .dns-list li span:hover {
+            color: #70a9ff;
+            text-decoration: underline;
+        }
+        .dns-owner {
+            font-size: 0.8rem;
+            color: #a0a0a0;
+            display: block;
+            margin-top: 2px;
         }
         .app-links {
             display: inline;
@@ -303,15 +319,6 @@
             text-align: center;
             margin: 20px 0;
             font-size: 1rem;
-        }
-        .clickable-dns {
-            cursor: pointer;
-            transition: color 0.2s;
-            display: inline-block;
-        }
-        .clickable-dns:hover {
-            color: #70a9ff;
-            text-decoration: underline;
         }
         .copy-hint {
             font-size: 0.9rem;
@@ -488,16 +495,18 @@
         </h3>
         <p class="copy-hint">(нажмите для копирования)</p>
         <ul class="dns-list">
-            <li><span class="clickable-dns" onclick="copyToClipboard('1.1.1.1')">1.1.1.1</span></li>
-            <li><span class="clickable-dns" onclick="copyToClipboard('8.8.8.8')">8.8.8.8</span></li>
-            <li><span class="clickable-dns" onclick="copyToClipboard('8.8.4.4')">8.8.4.4</span></li>
-            <li><span class="clickable-dns" onclick="copyToClipboard('9.9.9.9')">9.9.9.9</span></li>
-            <li><span class="clickable-dns" onclick="copyToClipboard('Xbox-dns.ru')">Xbox-dns.ru</span></li>
-            <li><span class="clickable-dns" onclick="copyToClipboard('1dot1dot1dot1.cloudflare-dns.com')">1dot1dot1dot1.cloudflare-dns.com</span></li>
-            <li><span class="clickable-dns" onclick="copyToClipboard('Dns.nullsproxy.com')">Dns.nullsproxy.com</span></li>
-            <li><span class="clickable-dns" onclick="copyToClipboard('router.comss.one')">router.comss.one</span></li>
-            <li><span class="clickable-dns" onclick="copyToClipboard('dns.astracat.ru')">dns.astracat.ru</span></li>
-            <li><span class="clickable-dns" onclick="copyToClipboard('dns.malw.link')">dns.malw.link</span></li>
+            <li><span onclick="copyToClipboard('1.1.1.1')">1.1.1.1 <span class="dns-owner">(Cloudflare)</span></span></li>
+            <li><span onclick="copyToClipboard('8.8.8.8')">8.8.8.8 <span class="dns-owner">(Google)</span></span></li>
+            <li><span onclick="copyToClipboard('8.8.4.4')">8.8.4.4 <span class="dns-owner">(Google)</span></span></li>
+            <li><span onclick="copyToClipboard('9.9.9.9')">9.9.9.9 <span class="dns-owner">(Quad9)</span></span></li>
+            <li><span onclick="copyToClipboard('114.114.114.114')">114.114.114.114 <span class="dns-owner">(114 DNS)</span></span></li>
+            <li><span onclick="copyToClipboard('223.5.5.5')">223.5.5.5 <span class="dns-owner">(Alibaba DNS)</span></span></li>
+            <li><span onclick="copyToClipboard('Xbox-dns.ru')">Xbox-dns.ru <span class="dns-owner">(Xbox)</span></span></li>
+            <li><span onclick="copyToClipboard('1dot1dot1dot1.cloudflare-dns.com')">1dot1dot1dot1.cloudflare-dns.com <span class="dns-owner">(Cloudflare)</span></span></li>
+            <li><span onclick="copyToClipboard('Dns.nullsproxy.com')">Dns.nullsproxy.com <span class="dns-owner">(Nullsproxy)</span></span></li>
+            <li><span onclick="copyToClipboard('router.comss.one')">router.comss.one <span class="dns-owner">(Comss)</span></span></li>
+            <li><span onclick="copyToClipboard('dns.astracat.ru')">dns.astracat.ru <span class="dns-owner">(AstraCat)</span></span></li>
+            <li><span onclick="copyToClipboard('dns.malw.link')">dns.malw.link <span class="dns-owner">(Malware DNS)</span></span></li>
         </ul>
 
         <hr>
