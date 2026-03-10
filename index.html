@@ -131,186 +131,6 @@
         .warning-footer {
             font-size: 1.05rem;
         }
-        
-        /* Новый стиль для образовательного блока про туннели */
-        .tunnel-info {
-            background: rgba(0, 30, 0, 0.3);
-            border: 2px solid #00cc00;
-            border-radius: 12px;
-            padding: 20px 18px;
-            margin: 25px 0 20px 0;
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
-            backdrop-filter: blur(2px);
-        }
-        .tunnel-info p {
-            margin-bottom: 12px;
-            text-align: justify;
-        }
-        .tunnel-info p:last-child {
-            margin-bottom: 0;
-        }
-        .tunnel-info strong {
-            color: #00ff00;
-        }
-        
-        /* Новый стиль для блока "КАК пользоваться" */
-        .howto-box {
-            background: linear-gradient(145deg, rgba(10, 30, 20, 0.7) 0%, rgba(0, 20, 10, 0.8) 100%);
-            border: 1px solid #00cc00;
-            border-radius: 24px;
-            padding: 28px 22px;
-            margin: 30px 0 25px 0;
-            box-shadow: 0 10px 25px rgba(0, 255, 0, 0.15), inset 0 0 20px rgba(0, 255, 0, 0.1);
-            backdrop-filter: blur(3px);
-            position: relative;
-            overflow: hidden;
-        }
-        .howto-box::before {
-            content: "";
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #00cc00, transparent, #00cc00, transparent);
-            border-radius: 26px;
-            z-index: -1;
-            animation: borderGlow 4s linear infinite;
-            opacity: 0.3;
-        }
-        @keyframes borderGlow {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
-        }
-        .howto-box h2 {
-            margin-top: 0;
-            margin-bottom: 20px;
-            color: #00ff00;
-            text-shadow: 0 0 10px #00cc00;
-            font-size: 2rem;
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-        .howto-box h2 span {
-            font-size: 2.2rem;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-        .howto-box h3 {
-            color: #a0ffa0;
-            font-size: 1.5rem;
-            margin: 25px 0 15px 0;
-            text-align: left;
-            border-left: 4px solid #00cc00;
-            padding-left: 15px;
-        }
-        .howto-box h3:first-of-type {
-            margin-top: 10px;
-        }
-        .howto-box .copy-hint {
-            color: #b0ffb0;
-            font-style: italic;
-            margin-bottom: 20px;
-            text-align: left;
-            padding-left: 20px;
-        }
-        .howto-box ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 25px 0;
-        }
-        .howto-box li {
-            margin: 18px 0;
-            padding: 12px 18px;
-            background: rgba(0, 50, 0, 0.4);
-            border-radius: 50px;
-            border: 1px solid #00aa00;
-            box-shadow: 0 2px 8px rgba(0, 255, 0, 0.2);
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        .howto-box li:hover {
-            transform: translateX(5px);
-            box-shadow: 0 4px 12px rgba(0, 255, 0, 0.4);
-            border-color: #00ff00;
-        }
-        .howto-box li strong {
-            min-width: 90px;
-            color: #90ff90;
-            font-size: 1.1rem;
-            margin-right: 15px;
-        }
-        .howto-box .app-links {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 8px;
-        }
-        .howto-box .app-links a {
-            color: #fff;
-            background: rgba(0, 100, 0, 0.6);
-            padding: 5px 15px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-            border: 1px solid #00cc00;
-            transition: all 0.2s;
-            font-size: 0.95rem;
-        }
-        .howto-box .app-links a:hover {
-            background: #00aa00;
-            color: #000;
-            border-color: #fff;
-            transform: scale(1.05);
-        }
-        .howto-box .app-links .separator {
-            color: #00cc00;
-            font-weight: bold;
-            margin: 0 2px;
-        }
-        .howto-box .app-links span:last-child {
-            color: #ccc;
-            font-style: italic;
-            margin-left: 5px;
-        }
-        .howto-box hr {
-            border: 0;
-            border-top: 1px dashed #00aa00;
-            margin: 25px 0;
-            box-shadow: 0 0 8px #00cc00;
-        }
-        .howto-box .recommend {
-            background: rgba(0, 80, 0, 0.5);
-            padding: 18px 20px;
-            border-radius: 20px;
-            margin: 20px 0;
-            border: 1px solid #00ff00;
-            box-shadow: inset 0 0 15px rgba(0, 255, 0, 0.3);
-        }
-        .howto-box .recommend em {
-            color: #b0ffb0;
-            font-size: 1.1rem;
-            font-style: normal;
-            display: block;
-            margin-bottom: 8px;
-        }
-        .howto-box .recommend p {
-            color: #fff;
-            line-height: 1.6;
-            text-align: justify;
-        }
-        .howto-box .recommend p:last-child {
-            margin-bottom: 0;
-        }
-        
         .button-group {
             display: flex;
             flex-direction: column;
@@ -439,22 +259,6 @@
         }
         .dns-list li {
             margin: 12px 0;
-            font-size: 1rem;
-        }
-        .dns-list li span {
-            cursor: pointer;
-            transition: color 0.2s;
-            display: inline-block;
-        }
-        .dns-list li span:hover {
-            color: #70a9ff;
-            text-decoration: underline;
-        }
-        .dns-owner {
-            font-size: 0.8rem;
-            color: #a0a0a0;
-            display: block;
-            margin-top: 2px;
         }
         .app-links {
             display: inline;
@@ -538,23 +342,6 @@
             <strong>Бесплатный сервис для изучения сетевых технологий</strong>
         </div>
 
-        <!-- Новый блок с описанием кротовых туннелей -->
-        <div class="tunnel-info">
-            <p><strong>Термин «кротовые туннели»</strong> в контексте VPN — это, скорее всего, результат метафорического описания технологии. В IT-индустрии такого официального термина нет, но под этим часто имеют в виду обычное VPN-туннелирование.</p>
-            <p>Если вы слышали про «кротовые» или просто «VPN-туннели», имеется в виду безопасный, зашифрованный канал связи между вашим устройством и VPN-сервером в интернете.</p>
-            <p><strong>Как это работает (понятная аналогия)</strong><br>
-            Представьте, что интернет — это шоссе, по которому едут автомобили (ваши данные).</p>
-            <p>• <strong>Без VPN:</strong> Вы едете на обычном автомобиле с прозрачными стеклами. Все вокруг (провайдер, хакеры, спецслужбы) видят, кто вы, откуда едете и что везете.</p>
-            <p>• <strong>С VPN:</strong> Вы пересаживаетесь в бронированный фургон с тонированными стеклами. Вы въезжаете в туннель. Внутри этого туннеля никто не видит, что происходит снаружи, а снаружи никто не видит, что происходит внутри фургона.</p>
-            <p><strong>Основные составляющие процесса:</strong></p>
-            <p>• <strong>Инкапсуляция (упаковка):</strong> Ваши данные разбиваются на небольшие пакеты. Каждый пакет «оборачивается» в дополнительную оболочку, чтобы его можно было безопасно передать через публичную сеть.</p>
-            <p>• <strong>Шифрование:</strong> Внутри этого «туннеля» данные превращаются в не читаемый код. Даже если кто-то перехватит пакеты, он не сможет их прочитать без специального ключа.</p>
-            <p>• <strong>Маршрутизация:</strong> Ваш трафик направляется на VPN-сервер. Для внешних сайтов кажется, что вы находитесь не у себя дома, а там, где расположен сервер (например, в другой стране).</p>
-            <p><strong>Почему это называют «туннелем»?</strong><br>
-            Это логический путь. Технически данные проходят через обычные провода и узлы сети, но благодаря шифрованию и инкапсуляции создается эффект «изолированного коридора», который существует поверх обычной сети — отсюда и название «туннель».</p>
-            <p><strong>Коротко:</strong> VPN-туннель — это ваша личная «защищенная труба» сквозь хаотичный и небезопасный интернет.</p>
-        </div>
-
         <!-- Блок warning с двумя красными полосами по бокам -->
         <div class="warning">
             <strong>⚠️ Важно:</strong><br>
@@ -577,64 +364,64 @@
             <p class="warning-footer" style="font-weight: 600; text-decoration: underline; margin:0; padding:0;">Используя приведённые ниже материалы, вы подтверждаете, что полностью осознаёте и принимаете ответственность за все свои действия.</p>
         </div>
 
-        <!-- КРАСИВО ОФОРМЛЕННЫЙ БЛОК "КАК ПОЛЬЗОВАТЬСЯ" -->
-        <div class="howto-box">
-            <h2>
-                <span>❓</span> КАК ПОЛЬЗОВАТЬСЯ <span>❓</span>
-            </h2>
+        <h2>
+            <span class="question-left">❓</span> КАК пользоваться <span class="question-right">❓</span>
+        </h2>
 
-            <h3>📱 Программы поддерживающие конфигурацию</h3>
-            <p class="copy-hint">(нажмите для скачивания)</p>
-            
-            <ul>
-                <li>
-                    <strong>Android</strong>
-                    <div class="app-links">
-                        <a href="https://play.google.com/store/apps/details?id=com.happproxy" target="_blank" rel="noopener noreferrer">Happ</a>
-                        <span class="separator">|</span>
-                        <a href="https://github.com/KaringX/karing/releases/download/v1.2.13.1600/karing_1.2.13.1600_android_arm.apk" target="_blank" rel="noopener noreferrer">Karing</a>
-                        <span class="separator">|</span>
-                        <a href="https://play.google.com/store/apps/details?id=app.hiddify.com" target="_blank" rel="noopener noreferrer">Hiddify</a>
-                        <span class="separator">|</span>
-                        <span>и др.</span>
-                    </div>
-                </li>
-                <li>
-                    <strong>iOS</strong>
-                    <div class="app-links">
-                        <a href="https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532" target="_blank" rel="noopener noreferrer">Hiddify</a>
-                        <span class="separator">|</span>
-                        <a href="https://apps.apple.com/ru/app/happ-proxy-utility-plus/id6746188973" target="_blank" rel="noopener noreferrer">Happ</a>
-                        <span class="separator">|</span>
-                        <a href="https://apps.apple.com/us/app/karing/id6472431552" target="_blank" rel="noopener noreferrer">Karing</a>
-                        <span class="separator">|</span>
-                        <span>и др.</span>
-                    </div>
-                </li>
-                <li>
-                    <strong>Windows</strong>
-                    <div class="app-links">
-                        <a href="https://github.com/Happ-proxy/happ-desktop/releases/download/2.0.3/setup-Happ.x64.exe" target="_blank" rel="noopener noreferrer">Happ</a>
-                        <span class="separator">|</span>
-                        <a href="https://github.com/KaringX/karing/releases/download/v1.2.13.1600/karing_1.2.13.1600_windows_x64.exe" target="_blank" rel="noopener noreferrer">Karing</a>
-                        <span class="separator">|</span>
-                        <a href="https://github.com/hiddify/hiddify-app/releases/download/v2.5.7/Hiddify-Windows-Setup-x64.exe" target="_blank" rel="noopener noreferrer">Hiddify</a>
-                        <span class="separator">|</span>
-                        <span>и др.</span>
-                    </div>
-                </li>
-            </ul>
+        <h3>📱 Программы поддерживающие конфигурацию</h3>
+        <p class="copy-hint">(нажмите для скачивания)</p>
+        <ul>
+            <li>
+                <strong>Android 🤖:</strong>
+                <div class="app-links">
+                    <a href="https://play.google.com/store/apps/details?id=com.happproxy" target="_blank" rel="noopener noreferrer">Happ</a>
+                    <span class="separator">|</span>
+                    <a href="https://github.com/KaringX/karing/releases/download/v1.2.13.1600/karing_1.2.13.1600_android_arm.apk" target="_blank" rel="noopener noreferrer">Karing</a>
+                    <span class="separator">|</span>
+                    <a href="https://github.com/2dust/v2rayNG/releases/download/1.10.32/v2RayNG_1.10.32_universal.apk" target="_blank" rel="noopener noreferrer">v2RayNG</a>
+                    <span class="separator">|</span>
+                    <a href="https://play.google.com/store/apps/details?id=app.hiddify.com" target="_blank" rel="noopener noreferrer">Hiddify</a>
+                    <span class="separator">|</span>
+                    <a href="https://play.google.com/store/apps/details?id=com.v2raytun.android" target="_blank" rel="noopener noreferrer">v2RayTun</a>
+                    <span class="separator">|</span>
+                    <span>и др.</span>
+                </div>
+            </li>
+            <li>
+                <strong>iOS 🍏:</strong>
+                <div class="app-links">
+                    <a href="https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532" target="_blank" rel="noopener noreferrer">Hiddify</a>
+                    <span class="separator">|</span>
+                    <a href="https://apps.apple.com/ru/app/happ-proxy-utility-plus/id6746188973" target="_blank" rel="noopener noreferrer">Happ</a>
+                    <span class="separator">|</span>
+                    <a href="https://apps.apple.com/us/app/karing/id6472431552" target="_blank" rel="noopener noreferrer">Karing</a>
+                    <span class="separator">|</span>
+                    <a href="https://apps.apple.com/ru/app/v2raytun/id6476628951" target="_blank" rel="noopener noreferrer">v2RayTun</a>
+                    <span class="separator">|</span>
+                    <span>и др.</span>
+                </div>
+            </li>
+            <li>
+                <strong>Windows 💻:</strong>
+                <div class="app-links">
+                    <a href="https://github.com/2dust/v2rayN/releases/download/7.17.3/v2rayN-windows-64-desktop.zip" target="_blank" rel="noopener noreferrer">v2RayN</a>
+                    <span class="separator">|</span>
+                    <a href="https://github.com/Happ-proxy/happ-desktop/releases/download/2.0.3/setup-Happ.x64.exe" target="_blank" rel="noopener noreferrer">Happ</a>
+                    <span class="separator">|</span>
+                    <a href="https://github.com/KaringX/karing/releases/download/v1.2.13.1600/karing_1.2.13.1600_windows_x64.exe" target="_blank" rel="noopener noreferrer">Karing</a>
+                    <span class="separator">|</span>
+                    <a href="https://github.com/hiddify/hiddify-app/releases/download/v2.5.7/Hiddify-Windows-Setup-x64.exe" target="_blank" rel="noopener noreferrer">Hiddify</a>
+                    <span class="separator">|</span>
+                    <a href="https://github.com/mdf45/v2raytun/releases/download/v3.7.10/v2RayTun_Setup.exe" target="_blank" rel="noopener noreferrer">v2RayTun</a>
+                    <span class="separator">|</span>
+                    <span>и др.</span>
+                </div>
+            </li>
+        </ul>
 
-            <hr>
-
-            <div class="recommend">
-                <em>✨ Рекомендую:</em>
-                <p><strong>Happ</strong> для телефона, <strong>Hiddify</strong> для ПК.</p>
-            </div>
-
-            <div class="recommend">
-                <p>Скачиваем клиент-приложение из указанных выше. Далее в приложении нажимаем «Вставить подписку из буфера обмена». Пингуем сервера и выбираем быстрый. И не забываем настраивать раздельное туннелирование приложений.</p>
-            </div>
+        <div class="programs-footer">
+            <p><em>Рекомендую: Happ для телефона, Hiddify для ПК.</em></p>
+            <p>Скачиваем клиент-приложение из указанных выше. Далее в приложении нажимаем «Вставить подписку из буфера обмена». Пингуем сервера и выбираем быстрый. и не забываем настраивать раздельное туннелирование приложений.</p>
         </div>
 
         <hr>
@@ -672,18 +459,16 @@
         </h3>
         <p class="copy-hint">(нажмите для копирования)</p>
         <ul class="dns-list">
-            <li><span onclick="copyToClipboard('1.1.1.1')">1.1.1.1 <span class="dns-owner">(Cloudflare)</span></span></li>
-            <li><span onclick="copyToClipboard('8.8.8.8')">8.8.8.8 <span class="dns-owner">(Google)</span></span></li>
-            <li><span onclick="copyToClipboard('8.8.4.4')">8.8.4.4 <span class="dns-owner">(Google)</span></span></li>
-            <li><span onclick="copyToClipboard('9.9.9.9')">9.9.9.9 <span class="dns-owner">(Quad9)</span></span></li>
-            <li><span onclick="copyToClipboard('114.114.114.114')">114.114.114.114 <span class="dns-owner">(114 DNS)</span></span></li>
-            <li><span onclick="copyToClipboard('223.5.5.5')">223.5.5.5 <span class="dns-owner">(Alibaba DNS)</span></span></li>
-            <li><span onclick="copyToClipboard('Xbox-dns.ru')">Xbox-dns.ru <span class="dns-owner">(Xbox)</span></span></li>
-            <li><span onclick="copyToClipboard('1dot1dot1dot1.cloudflare-dns.com')">1dot1dot1dot1.cloudflare-dns.com <span class="dns-owner">(Cloudflare)</span></span></li>
-            <li><span onclick="copyToClipboard('Dns.nullsproxy.com')">Dns.nullsproxy.com <span class="dns-owner">(Nullsproxy)</span></span></li>
-            <li><span onclick="copyToClipboard('router.comss.one')">router.comss.one <span class="dns-owner">(Comss)</span></span></li>
-            <li><span onclick="copyToClipboard('dns.astracat.ru')">dns.astracat.ru <span class="dns-owner">(AstraCat)</span></span></li>
-            <li><span onclick="copyToClipboard('dns.malw.link')">dns.malw.link <span class="dns-owner">(Malware DNS)</span></span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('1.1.1.1')">1.1.1.1</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('8.8.8.8')">8.8.8.8</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('8.8.4.4')">8.8.4.4</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('9.9.9.9')">9.9.9.9</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('Xbox-dns.ru')">Xbox-dns.ru</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('1dot1dot1dot1.cloudflare-dns.com')">1dot1dot1dot1.cloudflare-dns.com</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('Dns.nullsproxy.com')">Dns.nullsproxy.com</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('router.comss.one')">router.comss.one</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('dns.astracat.ru')">dns.astracat.ru</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('dns.malw.link')">dns.malw.link</span></li>
         </ul>
 
         <hr>
@@ -749,4 +534,46 @@
             textarea.select();
             try {
                 document.execCommand('copy');
-            } catch (
+            } catch (err) {}
+            document.body.removeChild(textarea);
+        }
+
+        function copyConfig(button) {
+            const copyUrl = button.dataset.copyUrl;
+            if (!copyUrl) return;
+            const originalHTML = button.innerHTML;
+            copyToClipboard(copyUrl);
+            button.innerHTML = '✅ Скопировано!';
+            setTimeout(() => {
+                button.innerHTML = originalHTML;
+            }, 1000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.button[data-url]');
+            buttons.forEach(button => {
+                const url = button.dataset.url;
+                const title = button.dataset.title;
+                if (url && title) {
+                    fetch(url)
+                        .then(response => response.text())
+                        .then(text => {
+                            const lines = text.split('\n');
+                            const announceLine = lines.find(line => line.trim().startsWith('#announce'));
+                            let announceText = '';
+                            if (announceLine) {
+                                announceText = announceLine.replace(/^#announce\s*:?\s*/i, '').trim();
+                            } else {
+                                announceText = 'Статистика не найдена';
+                            }
+                            button.innerHTML = title + '<br><span class="button-stats">' + announceText + '</span>';
+                        })
+                        .catch(() => {
+                            button.innerHTML = title + '<br><span class="button-stats">Ошибка загрузки</span>';
+                        });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
