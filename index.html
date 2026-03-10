@@ -30,7 +30,7 @@
             height: 100%;
             z-index: -1;
             pointer-events: none;
-            display: block; /* гарантируем, что он виден */
+            display: block;
         }
         .container {
             max-width: 100%;
@@ -509,7 +509,7 @@
             </video>
         </div>
 
-        <!-- Первая строка: исправлено на "ИИ ботами" как в оригинале -->
+        <!-- Первая строка -->
         <div class="sub-message red-text">
             <strong>Данный сервис создан ИИ ботами под влиянием мошенников!</strong>
         </div>
@@ -517,7 +517,7 @@
             <strong>Бесплатный сервис для изучения сетевых технологий</strong>
         </div>
 
-        <!-- Блок про туннели (исправлено "крововые" на "кротовые") -->
+        <!-- Блок про туннели -->
         <div class="tunnel-info">
             <p><strong>Термин «кротовые туннели»</strong> в контексте VPN — это, скорее всего, результат метафорического описания технологии. В IT-индустрии такого официального термина нет, но под этим часто имеют в виду обычное VPN-туннелирование.</p>
             <p>Если вы слышали про «кротовые» или просто «VPN-туннели», имеется в виду безопасный, зашифрованный канал связи между вашим устройством и VPN-сервером в интернете.</p>
@@ -669,7 +669,7 @@
     </div>
 
     <script>
-        // ---------- МАТРИЦА (ПОЛНОСТЬЮ РАБОЧАЯ) ----------
+        // ========== МАТРИЦА (ПОЛНОСТЬЮ РАБОЧАЯ) ==========
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
 
@@ -722,7 +722,7 @@
             }
         });
 
-        // ---------- ФУНКЦИИ КОПИРОВАНИЯ ----------
+        // ========== ФУНКЦИИ КОПИРОВАНИЯ ==========
         function copyToClipboard(text) {
             const textarea = document.createElement('textarea');
             textarea.value = text;
@@ -747,6 +747,15 @@
             }, 1000);
         }
 
-        // Загрузка статистики для кнопок
+        // ========== ЗАГРУЗКА СТАТИСТИКИ ==========
         document.addEventListener('DOMContentLoaded', () => {
-            const buttons
+            const buttons = document.querySelectorAll('.button[data-url]');
+            buttons.forEach(button => {
+                const url = button.dataset.url;
+                const title = button.dataset.title;
+                if (url && title) {
+                    fetch(url)
+                        .then(response => response.text())
+                        .then(text => {
+                            const lines = text.split('\n');
+                            const announceLine = lines.find(line => line.trim().startsWith
