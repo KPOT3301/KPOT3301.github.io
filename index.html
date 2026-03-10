@@ -21,6 +21,7 @@
             position: relative;
             min-height: 100vh;
         }
+        /* Холст для матрицы */
         #matrix-canvas {
             position: fixed;
             top: 0;
@@ -29,6 +30,7 @@
             height: 100%;
             z-index: -1;
             pointer-events: none;
+            display: block; /* гарантируем, что он виден */
         }
         .container {
             max-width: 100%;
@@ -43,7 +45,6 @@
             text-align: center;
             margin-bottom: 10px;
         }
-        /* Стили для видео */
         .logo-container video {
             max-width: 90%;
             height: auto;
@@ -81,7 +82,6 @@
             letter-spacing: 1px;
         }
 
-        /* Более четкое кислотно-зеленое свечение */
         .red-text {
             color: #00cc00;
             text-shadow: 0 0 1px #00cc00;
@@ -120,8 +120,8 @@
         }
         .warning {
             background: transparent;
-            border-left: 5px solid #ff0000;    /* ярко-красный слева */
-            border-right: 5px solid #ff0000;   /* ярко-красный справа */
+            border-left: 5px solid #ff0000;
+            border-right: 5px solid #ff0000;
             padding: 14px 16px;
             margin: 20px 0;
             border-radius: 8px;
@@ -132,7 +132,6 @@
             font-size: 1.05rem;
         }
         
-        /* Новый стиль для образовательного блока про туннели */
         .tunnel-info {
             background: rgba(0, 30, 0, 0.3);
             border: 2px solid #00cc00;
@@ -153,7 +152,6 @@
             color: #00ff00;
         }
         
-        /* Новый стиль для блока "КАК пользоваться" */
         .howto-box {
             background: linear-gradient(145deg, rgba(10, 30, 20, 0.7) 0%, rgba(0, 20, 10, 0.8) 100%);
             border: 1px solid #00cc00;
@@ -209,9 +207,6 @@
             text-align: left;
             border-left: 4px solid #00cc00;
             padding-left: 15px;
-        }
-        .howto-box h3:first-of-type {
-            margin-top: 10px;
         }
         .howto-box .copy-hint {
             color: #b0ffb0;
@@ -307,9 +302,6 @@
             line-height: 1.6;
             text-align: justify;
         }
-        .howto-box .recommend p:last-child {
-            margin-bottom: 0;
-        }
         
         .button-group {
             display: flex;
@@ -347,7 +339,6 @@
             border: 2px solid #fff;
         }
 
-        /* Стиль для статистики внутри кнопок (меньший шрифт) */
         .button-stats {
             font-size: 0.75rem;
             display: block;
@@ -355,7 +346,6 @@
             opacity: 0.9;
         }
 
-        /* Асинхронные анимации ракет (только для заголовка Конфигурации) */
         .rocket-left {
             display: inline-block;
             animation: rocketFlyLeft 2s ease-in-out infinite;
@@ -380,13 +370,11 @@
             100% { transform: translateY(0) rotate(0deg); }
         }
 
-        /* Вращение по горизонтальной оси (общий ключевой кадр) */
         @keyframes spinHorizontal {
             from { transform: rotateY(0deg); }
             to { transform: rotateY(360deg); }
         }
 
-        /* Асинхронное вращение для вопросительных знаков */
         .question-left {
             display: inline-block;
             animation: spinHorizontal 2.5s linear infinite;
@@ -398,7 +386,6 @@
             animation-delay: 0.5s;
         }
 
-        /* Вращение планет (для DNS) */
         .planet {
             display: inline-block;
             animation: spinHorizontal 3s linear infinite;
@@ -421,7 +408,6 @@
             white-space: pre-wrap;
             font-size: 0.85rem;
             overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
         }
         hr {
             border: 0;
@@ -478,15 +464,6 @@
             margin: 20px 0;
             font-size: 1rem;
         }
-        .clickable-dns {
-            cursor: pointer;
-            transition: color 0.2s;
-            display: inline-block;
-        }
-        .clickable-dns:hover {
-            color: #70a9ff;
-            text-decoration: underline;
-        }
         .copy-hint {
             font-size: 0.9rem;
             color: #b0b0b0;
@@ -495,7 +472,6 @@
             font-weight: normal;
         }
 
-        /* Центрирование текста под списком программ */
         .programs-footer p {
             text-align: center;
         }
@@ -522,7 +498,9 @@
     </style>
 </head>
 <body>
+    <!-- Холст для матрицы -->
     <canvas id="matrix-canvas"></canvas>
+
     <div class="container">
         <div class="logo-container">
             <video autoplay loop muted playsinline>
@@ -531,6 +509,7 @@
             </video>
         </div>
 
+        <!-- Первая строка: исправлено на "ИИ ботами" как в оригинале -->
         <div class="sub-message red-text">
             <strong>Данный сервис создан ИИ ботами под влиянием мошенников!</strong>
         </div>
@@ -538,7 +517,7 @@
             <strong>Бесплатный сервис для изучения сетевых технологий</strong>
         </div>
 
-        <!-- Новый блок с описанием кротовых туннелей -->
+        <!-- Блок про туннели (исправлено "крововые" на "кротовые") -->
         <div class="tunnel-info">
             <p><strong>Термин «кротовые туннели»</strong> в контексте VPN — это, скорее всего, результат метафорического описания технологии. В IT-индустрии такого официального термина нет, но под этим часто имеют в виду обычное VPN-туннелирование.</p>
             <p>Если вы слышали про «кротовые» или просто «VPN-туннели», имеется в виду безопасный, зашифрованный канал связи между вашим устройством и VPN-сервером в интернете.</p>
@@ -555,7 +534,7 @@
             <p><strong>Коротко:</strong> VPN-туннель — это ваша личная «защищенная труба» сквозь хаотичный и небезопасный интернет.</p>
         </div>
 
-        <!-- Блок warning с двумя красными полосами по бокам -->
+        <!-- Блок warning -->
         <div class="warning">
             <strong>⚠️ Важно:</strong><br>
             Проект не является средством обхода ограничений, не предназначен для доступа к запрещённым сайтам, ресурсам или контенту, включённым в реестр Роскомнадзора.<br><br>
@@ -577,7 +556,7 @@
             <p class="warning-footer" style="font-weight: 600; text-decoration: underline; margin:0; padding:0;">Используя приведённые ниже материалы, вы подтверждаете, что полностью осознаёте и принимаете ответственность за все свои действия.</p>
         </div>
 
-        <!-- КРАСИВО ОФОРМЛЕННЫЙ БЛОК "КАК ПОЛЬЗОВАТЬСЯ" -->
+        <!-- Блок "КАК ПОЛЬЗОВАТЬСЯ" -->
         <div class="howto-box">
             <h2>
                 <span>❓</span> КАК ПОЛЬЗОВАТЬСЯ <span>❓</span>
@@ -690,6 +669,7 @@
     </div>
 
     <script>
+        // ---------- МАТРИЦА (ПОЛНОСТЬЮ РАБОЧАЯ) ----------
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
 
@@ -742,6 +722,7 @@
             }
         });
 
+        // ---------- ФУНКЦИИ КОПИРОВАНИЯ ----------
         function copyToClipboard(text) {
             const textarea = document.createElement('textarea');
             textarea.value = text;
@@ -750,4 +731,22 @@
             try {
                 document.execCommand('copy');
             } catch (err) {
-                console.error('О
+                console.warn('Не удалось скопировать:', err);
+            }
+            document.body.removeChild(textarea);
+        }
+
+        function copyConfig(button) {
+            const copyUrl = button.dataset.copyUrl;
+            if (!copyUrl) return;
+            const originalHTML = button.innerHTML;
+            copyToClipboard(copyUrl);
+            button.innerHTML = '✅ Скопировано!';
+            setTimeout(() => {
+                button.innerHTML = originalHTML;
+            }, 1000);
+        }
+
+        // Загрузка статистики для кнопок
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons
