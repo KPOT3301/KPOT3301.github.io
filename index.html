@@ -299,6 +299,29 @@
             font-weight: normal;
         }
 
+        /* Стили для цитаты из скриншота (кровавые туннели) */
+        .tunnel-quote {
+            background: rgba(0, 30, 0, 0.6);
+            border: 1px solid #00cc00;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+        }
+        .tunnel-quote p {
+            margin-bottom: 12px;
+        }
+        .tunnel-quote ul {
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+        .tunnel-quote li {
+            margin-bottom: 4px;
+        }
+        .tunnel-quote strong {
+            color: #00ff00;
+        }
+
         /* Центрирование текста под списком программ */
         .programs-footer p {
             text-align: center;
@@ -340,6 +363,27 @@
         </div>
         <div class="main-title black-text">
             <strong>Бесплатный сервис для изучения сетевых технологий</strong>
+        </div>
+
+        <!-- ВСТАВЛЕНО: Текст с первого скриншота про "кровавые туннели" -->
+        <div class="tunnel-quote">
+            <p><strong>Термин «крововые туннели» в контексте VPN</strong> — это, скорее всего, результат метафорического описания технологии. В IT-индустрии такого официального термина нет, но под этим часто имеют в виду обычное VPN-туннелирование.</p>
+            <p>Если вы слышали про «крововые» или просто «VPN-туннели», имеется в виду безопасный, зашифрованный канал связи между вашим устройством и VPN-сервером в интернете.</p>
+            <p><strong>Как это работает (понятная аналогия)</strong><br>
+            Представьте, что интернет — это шоссе, по которому едут автомобили (ваши данные).</p>
+            <ul>
+                <li><strong>Без VPN:</strong> Вы едете на обычном автомобиле с прозрачными стеклами. Все вокруг (провайдер, хакеры, спецслужбы) видят, кто вы, откуда едете и что везете.</li>
+                <li><strong>С VPN:</strong> Вы пересаживаетесь в бронированный фургон с тонированными стеклами. Вы въезжаете в туннель. Внутри этого туннеля никто не видит, что происходит снаружи, а снаружи никто не видит, что происходит внутри фургона.</li>
+            </ul>
+            <p><strong>Основные составляющие процесса:</strong></p>
+            <ul>
+                <li><strong>Инкапсуляция (упаковка):</strong> Ваши данные разбиваются на небольшие пакеты. Каждый пакет «оборачивается» в дополнительную оболочку, чтобы его можно было безопасно передать через публичную сеть.</li>
+                <li><strong>Шифрование:</strong> Внутри этого «туннеля» данные превращаются в не читаемый код. Даже если кто-то перехватит пакеты, он не сможет их прочитать без специального ключа.</li>
+                <li><strong>Маршрутизация:</strong> Ваш трафик направляется на VPN-сервер. Для внешних сайтов кажется, что вы находитесь не у себя дома, а там, где расположен сервер (например, в другой стране).</li>
+            </ul>
+            <p><strong>Почему это называют «туннелем»?</strong><br>
+            Это логический путь. Технически данные проходят через обычные провода и узлы сети, но благодаря шифрованию и инкапсуляции создается эффект «изолированного коридора», который существует поверх обычной сети — отсюда и название «туннель».</p>
+            <p><strong>Коротко:</strong> VPN-туннель — это ваша личная «защищенная труба» сквозь хаотичный и небезопасный интернет.</p>
         </div>
 
         <!-- Блок warning с двумя красными полосами по бокам -->
@@ -458,17 +502,20 @@
             <span class="planet">🌐</span> Рекомендуемые DNS <span class="planet">🌐</span>
         </h3>
         <p class="copy-hint">(нажмите для копирования)</p>
+        <!-- ВСТАВЛЕНО: Полный список DNS со второго скриншота (все 11 позиций) -->
         <ul class="dns-list">
-            <li><span class="clickable-dns" onclick="copyToClipboard('1.1.1.1')">1.1.1.1</span></li>
-            <li><span class="clickable-dns" onclick="copyToClipboard('8.8.8.8')">8.8.8.8</span></li>
-            <li><span class="clickable-dns" onclick="copyToClipboard('8.8.4.4')">8.8.4.4</span></li>
-            <li><span class="clickable-dns" onclick="copyToClipboard('9.9.9.9')">9.9.9.9</span></li>
-            <li><span class="clickable-dns" onclick="copyToClipboard('Xbox-dns.ru')">Xbox-dns.ru</span></li>
-            <li><span class="clickable-dns" onclick="copyToClipboard('1dot1dot1dot1.cloudflare-dns.com')">1dot1dot1dot1.cloudflare-dns.com</span></li>
-            <li><span class="clickable-dns" onclick="copyToClipboard('Dns.nullsproxy.com')">Dns.nullsproxy.com</span></li>
-            <li><span class="clickable-dns" onclick="copyToClipboard('router.comss.one')">router.comss.one</span></li>
-            <li><span class="clickable-dns" onclick="copyToClipboard('dns.astracat.ru')">dns.astracat.ru</span></li>
-            <li><span class="clickable-dns" onclick="copyToClipboard('dns.malw.link')">dns.malw.link</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('1.1.1.1')">1.1.1.1 (Cloudflare)</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('8.8.8.8')">8.8.8.8 (Google)</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('8.8.4.4')">8.8.4.4 (Google)</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('9.9.9.9')">9.9.9.9 (Quad9)</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('114.114.114.114')">114.114.114.114 (114 DNS)</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('223.5.5.5')">223.5.5.5 (Alibaba DNS)</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('Xbox-dns.ru')">Xbox-dns.ru (Xbox)</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('1dot1dot1dot1.cloudflare-dns.com')">1dot1dot1dot1.cloudflare-dns.com (Cloudflare)</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('Dns.nullproxy.com')">Dns.nullproxy.com (Nullproxy)</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('router.comss.one')">router.comss.one (Comss)</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('dns.astracat.ru')">dns.astracat.ru (AstraCat)</span></li>
+            <li><span class="clickable-dns" onclick="copyToClipboard('dns.malw.link')">dns.malw.link (Malware DNS)</span></li>
         </ul>
 
         <hr>
